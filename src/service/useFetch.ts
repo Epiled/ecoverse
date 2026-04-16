@@ -3,11 +3,11 @@ import { useEffect, useState } from "react";
 
 const http = import.meta.env.VITE_API_URL;
 
-const localization = import.meta.env.MODE === 'development'
-  ? 'http://localhost:3000/' // JSON Server
-  : 'https://api-ecoverse.vercel.app/api/'; // API de produção
-
-console.log(import.meta.env.MODE, localization);
+interface ApiResponse<T> {
+  success: boolean;
+  total: number;
+  data: T;
+}
 
 const useFetch = <T>({ url }: { url: string; }) => {
   const [dados, setDados] = useState<T | null>(null);
@@ -15,9 +15,10 @@ const useFetch = <T>({ url }: { url: string; }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      axios.get(`${http}${url}`)
+      axios.get<ApiResponse<T>>(`${http}${url}`)
       .then(resposta => {
-        setDados(resposta.data.products || resposta.data); // Define dados com base no que é retornado
+        const { data: json } = resposta.data;
+        setDados(json);
       })
       .catch(erro => {
         setErro(erro);

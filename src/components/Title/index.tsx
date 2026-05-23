@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import style from './Titulo.module.scss'
+import style from './styles.module.scss'
 
-function Titulo({children, alt}: {children: string, alt?: boolean}) {
+function Title({children, alt}: {children: string, alt?: boolean}) {
   return (
     <h2 className={classNames(
       style.titulo,
@@ -12,4 +12,4 @@ function Titulo({children, alt}: {children: string, alt?: boolean}) {
   )
 }
 
-export default Titulo;
+export default Title;

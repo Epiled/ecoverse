@@ -1,29 +1,29 @@
-.titulo {
-  color: var(--color-main);
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
+.title {
   position: relative;
+  color: var(--color-main);
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
 
   @media screen and (min-width: 1280px) {
     &::before {
-      content: '';
       position: absolute;
-      width: 36rem;
-      height: .1rem;
       top: 50%;
       left: 6.5rem;
+      width: 36rem;
+      height: 0.1rem;
       background-color: var(--color-white-5);
+      content: "";
     }
 
     &::after {
-      content: '';
       position: absolute;
-      width: 36rem;
-      height: .1rem;
       top: 50%;
       right: 6.5rem;
+      width: 36rem;
+      height: 0.1rem;
       background-color: var(--color-white-5);
+      content: "";
     }
   }
 

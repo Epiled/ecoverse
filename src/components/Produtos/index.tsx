@@ -1,6 +1,6 @@
 import style from "./Produtos.module.scss";
 import Parceiro from "../Parceiro";
-import Titulo from "../Titulo";
+import Title from "../Title";
 import Produto from "./Produto";
 import { IProduto } from "../../interfaces/IProduto";
 import React, { useEffect, useRef, useState } from "react";
@@ -132,7 +132,7 @@ const Produtos: React.FC<Props> = ({ produtos, selecionaProduto, onModal }) => {
 
   return (
     <section className={style.produtos}>
-      <Titulo>Produtos relacionados</Titulo>
+      <Title>Produtos relacionados</Title>
 
       <nav className={style.produtos__categorias}>
         <Link

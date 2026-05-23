@@ -17,7 +17,7 @@ import Facebook from '../../assets/svg/social/facebook.svg?react';
 import Instagram from '../../assets/svg/social/instagram.svg?react';
 import Youtube from '../../assets/svg/social/youtube.svg?react';
 
-import Botao from '../Botao';
+import Button from '../Button';
 import { Link } from 'react-router-dom';
 
 const Rodape: React.FC = () => {
@@ -80,9 +80,9 @@ const Rodape: React.FC = () => {
           </p>
           <form className={style.rodape__formulario} action="">
             <input className={style.rodape__ipt} placeholder='Seu e-mail' type="email" name="" id="" />
-            <Botao className={'botao--form'} ancora='#'>
+            <Button className={'botao--form'} ancora='#'>
               Ok
-            </Botao>
+            </Button>
           </form>
         </aside>
       </div>

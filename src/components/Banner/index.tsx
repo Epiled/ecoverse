@@ -1,6 +1,6 @@
 import React from "react";
-import Botao from "../Botao";
-import style from './Banner.module.scss'
+import Button from "../Button";
+import style from "./Banner.module.scss";
 
 const Banner: React.FC = () => {
   return (
@@ -11,13 +11,13 @@ const Banner: React.FC = () => {
             Venha conhecer nossas promoções
             <span className={style.banner__desconto}>50% Off nos produtos</span>
           </h1>
-          <Botao ancora="#" className={'botao--banner'}>
+          <Button ancora="#" className={"botao--banner"}>
             Ver Produto
-          </Botao>
+          </Button>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default Banner;

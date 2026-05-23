@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import Botao from "../Botao";
+import Button from "../Button";
 import style from "./Parceiro.module.scss"
 
 interface Props {
@@ -20,9 +20,9 @@ const Parceiro: React.FC<Props> = ({ titulo, className }) => {
         <p className={style.parceiro__txt}>
           Lorem ipsum dolor sit amet, consectetur
         </p>
-        <Botao ancora="#" className="botao--parceiro">
+        <Button ancora="#" className="botao--parceiro">
           Confira
-        </Botao>
+        </Button>
       </div>
     </div>
   )

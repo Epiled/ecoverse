@@ -1,9 +1,9 @@
 import Title from "../Title";
-import style from "./Marcas.module.scss";
+import style from "./styles.module.scss";
 import Marca from "./Marca";
 import React, { useRef, useState } from "react";
 
-const Marcas: React.FC = () => {
+const Brands: React.FC = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   const produtosRef = useRef<Array<React.RefObject<HTMLAnchorElement>>>([]);
 
@@ -104,10 +104,10 @@ const Marcas: React.FC = () => {
   }
 
   return (
-    <section className={style.marcas}>
+    <section className={style.brands}>
       <Title alt={true}>Navegue por marcas</Title>
 
-      <div className={style.marcas__carrousel} ref={ref}>
+      <div className={style.brands__carrousel} ref={ref}>
         {Array.from({ length: 8 }, (_, index) => {
           const ref = React.createRef<HTMLAnchorElement>();
           produtosRef.current[index] = ref;
@@ -116,7 +116,7 @@ const Marcas: React.FC = () => {
         })}
 
         <button
-          className={style.marcas__avancar}
+          className={style.brands__avancar}
           aria-label="Botão de avançar marcas"
           onClick={(e) => {
             moverItens(e);
@@ -128,4 +128,4 @@ const Marcas: React.FC = () => {
   );
 };
 
-export default Marcas;
+export default Brands;

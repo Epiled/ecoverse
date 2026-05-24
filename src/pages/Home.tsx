@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Banner from "../components/Banner";
 import Menu from "../components/Menu";
 import Categories from "../components/Categories";
-import Produtos from "../components/Produtos";
+import Products from "../components/Products";
 import Relacionados from "../components/Relacionados";
 import Brands from "../components/Brands";
 import Rodape from "../components/Rodape";
@@ -45,8 +45,8 @@ const Home: React.FC = () => {
       <Menu />
       <Banner />
       <Categories />
-      <Produtos
-        produtos={produtos}
+      <Products
+        products={produtos}
         selecionaProduto={selecionaProduto}
         onModal={onModal}
       />

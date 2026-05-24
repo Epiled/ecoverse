@@ -1,27 +1,27 @@
-.produtos {
+.products {
   max-width: 128rem;
   margin: 0 auto;
   padding: 0 2rem;
 
   @media screen and (min-width: 1440px) {
-    padding: 0
+    padding: 0;
   }
 
-  &__titulo {
+  &__title {
     color: var(--color-main);
     font-size: 3rem;
     font-weight: 700;
     text-align: center;
   }
 
-  &__categorias {
+  &__categories {
     display: flex;
     flex-wrap: wrap;
     text-transform: uppercase;
   }
 
-  &__categoria {
-    border: .1rem solid var(--color-gray-lighter-1);
+  &__category {
+    border: 0.1rem solid var(--color-gray-lighter-1);
     color: var(--color-gray-darker-4);
     display: flex;
     justify-content: center;
@@ -34,10 +34,10 @@
     max-height: 4rem;
 
     &:hover {
-      color: var(--color-main)
+      color: var(--color-main);
     }
 
-    &--ativo {
+    &--active {
       color: var(--color-main);
       font-weight: 700;
     }
@@ -53,13 +53,13 @@
     gap: 5.3rem;
     padding: 2rem 0 2rem 0;
     min-height: 15rem;
-    
+
     @media screen and (min-width: 1440px) {
       gap: 6.2rem;
     }
   }
 
-  &__setas {
+  &__arrows {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -67,7 +67,7 @@
     height: 5rem;
   }
 
-  &__seta {
+  &__arrow {
     position: absolute;
     width: 5rem;
     height: 5rem;
@@ -82,35 +82,35 @@
     @media screen and (max-width: 1440px) {
       background-color: var(--color-gray-lighter-1-aplha);
       background-size: 1.5rem;
-      padding: .5rem;
+      padding: 0.5rem;
     }
 
     &:hover {
       background-color: var(--color-gray-lighter-2-aplha);
     }
 
-    &--esq {
+    &--left {
       left: -6.5rem;
     }
 
-    &--dir {
+    &--right {
       right: -6.5rem;
       transform: rotate(180deg);
     }
 
     @media screen and (max-width: 1440px) {
-      &--esq {
+      &--left {
         left: 0;
       }
 
-      &--dir {
+      &--right {
         right: 0;
         transform: rotate(180deg);
       }
     }
   }
 
-  &__parceiros {
+  &__partners {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -121,6 +121,5 @@
     @media screen and (min-width: 1280px) {
       gap: 10.5rem;
     }
-
   }
 }

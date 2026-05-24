@@ -1,4 +1,4 @@
-import style from "./Produtos.module.scss";
+import style from "./styles.module.scss";
 import Partner from "../Partner";
 import Title from "../Title";
 import Produto from "./Produto";
@@ -7,14 +7,14 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import ErrorFeedBack from "../ErrorFeedBack";
 interface Props {
-  produtos: IProduto[];
+  products: IProduto[];
   selecionaProduto: (produtoSelecionado: IProduto) => void;
   onModal: (onModal: boolean) => void;
 }
 
-const Produtos: React.FC<Props> = ({ produtos, selecionaProduto, onModal }) => {
+const Products: React.FC<Props> = ({ products, selecionaProduto, onModal }) => {
   const ref = useRef<HTMLUListElement | null>(null);
-  const produtosRef = useRef<Array<React.RefObject<HTMLLIElement>>>([]);
+  const productsRef = useRef<Array<React.RefObject<HTMLLIElement>>>([]);
 
   const [animando, setAnimando] = useState(false);
   const containerTamanho = ref.current?.getBoundingClientRect().width || 0;
@@ -34,11 +34,11 @@ const Produtos: React.FC<Props> = ({ produtos, selecionaProduto, onModal }) => {
     let valorAtual = 0;
     let larguraProduto = 0;
 
-    const produtoRefPrimeiro = produtosRef.current[0].current;
+    const produtoRefPrimeiro = productsRef.current[0].current;
     const produtoRefPrimeiroPosition =
       produtoRefPrimeiro?.getBoundingClientRect().x || 0;
 
-    const produtoRefUltimo = produtosRef.current.at(-1)?.current;
+    const produtoRefUltimo = productsRef.current.at(-1)?.current;
     const produtoRefUltimoPosition =
       produtoRefUltimo?.getBoundingClientRect().x || 0;
 
@@ -50,7 +50,7 @@ const Produtos: React.FC<Props> = ({ produtos, selecionaProduto, onModal }) => {
       ));
     }
 
-    produtosRef.current.forEach((produtoRef) => {
+    productsRef.current.forEach((produtoRef) => {
       const produto = produtoRef.current;
       if (produto) {
         estiloAtual = getComputedStyle(produto);
@@ -58,7 +58,7 @@ const Produtos: React.FC<Props> = ({ produtos, selecionaProduto, onModal }) => {
         let novaPosicao = 0;
         const deslocamentoBase = larguraProduto + containerGap;
 
-        if (sentido === "esq") {
+        if (sentido === "left") {
           const foraDoContainer = produtoRefPrimeiroPosition - containerX;
 
           if (foraDoContainer >= 0) return;
@@ -112,7 +112,7 @@ const Produtos: React.FC<Props> = ({ produtos, selecionaProduto, onModal }) => {
   const [hasProduct, setHasProduct] = useState(false);
 
   useEffect(() => {
-    produtosRef.current.forEach((produtoRef) => {
+    productsRef.current.forEach((produtoRef) => {
       const produto = produtoRef.current;
       if (produto) {
         const posicaoAtual = produto.getBoundingClientRect().x;
@@ -120,55 +120,55 @@ const Produtos: React.FC<Props> = ({ produtos, selecionaProduto, onModal }) => {
         setHasProduct(true);
       }
     });
-  }, [produtos]);
+  }, [products]);
 
   useEffect(() => {
-    if (produtos.length > 0) {
-      setHasProduct(true); // Se houver produtos, atualiza hasProduct para true
+    if (products.length > 0) {
+      setHasProduct(true); // Se houver products, atualiza hasProduct para true
     } else {
-      setHasProduct(false); // Se não houver produtos, define hasProduct como false
+      setHasProduct(false); // Se não houver products, define hasProduct como false
     }
-  }, [produtos]);
+  }, [products]);
 
   return (
-    <section className={style.produtos}>
+    <section className={style.products}>
       <Title>Produtos relacionados</Title>
 
-      <nav className={style.produtos__categorias}>
+      <nav className={style.products__categories}>
         <Link
           to={"/"}
-          className={`${style.produtos__categoria} ${style["produtos__categoria--ativo"]}`}
+          className={`${style.products__category} ${style["products__category--active"]}`}
         >
           Celular
         </Link>
-        <Link to={"/"} className={style.produtos__categoria}>
+        <Link to={"/"} className={style.products__category}>
           Acessórios
         </Link>
-        <Link to={"/"} className={style.produtos__categoria}>
+        <Link to={"/"} className={style.products__category}>
           Tablets
         </Link>
-        <Link to={"/"} className={style.produtos__categoria}>
+        <Link to={"/"} className={style.products__category}>
           Notebooks
         </Link>
-        <Link to={"/"} className={style.produtos__categoria}>
+        <Link to={"/"} className={style.products__category}>
           TVs
         </Link>
-        <Link to={"/"} className={style.produtos__categoria}>
+        <Link to={"/"} className={style.products__category}>
           Ver todos
         </Link>
       </nav>
 
-      <div className={style.produtos__vitrine}>
-        <ul className={style.produtos__wrap} ref={ref}>
-          {produtos.length > 0 &&
-            produtos.map((produto, index) => {
-              produtosRef.current[index] = React.createRef();
+      <div className={style.products__vitrine}>
+        <ul className={style.products__wrap} ref={ref}>
+          {products.length > 0 &&
+            products.map((produto, index) => {
+              productsRef.current[index] = React.createRef();
 
               return (
                 <Produto
                   index={index}
                   key={index}
-                  ref={produtosRef.current[index]}
+                  ref={productsRef.current[index]}
                   selecionaProduto={selecionaProduto}
                   onModal={onModal}
                   {...produto}
@@ -176,29 +176,29 @@ const Produtos: React.FC<Props> = ({ produtos, selecionaProduto, onModal }) => {
               );
             })}
         </ul>
-        <div className={style.produtos__setas}>
+        <div className={style.products__arrows}>
           <button
             onClick={(e) => {
               moverItens(e);
             }}
-            data-sentido="esq"
-            className={`${style.produtos__seta} ${style["produtos__seta--esq"]}`}
-            aria-label="Retroceder lista de produtos"
+            data-sentido="left"
+            className={`${style.products__arrow} ${style["products__arrow--left"]}`}
+            aria-label="Retroceder lista de products"
           ></button>
           <button
             onClick={(e) => {
               moverItens(e);
             }}
-            data-sentido="dir"
-            className={`${style.produtos__seta} ${style["produtos__seta--dir"]}`}
-            aria-label="Avançar lista de produtos"
+            data-sentido="right"
+            className={`${style.products__arrow} ${style["products__arrow--right"]}`}
+            aria-label="Avançar lista de products"
           ></button>
         </div>
 
         {!hasProduct && <ErrorFeedBack />}
       </div>
 
-      <div className={style.produtos__parceiros}>
+      <div className={style.products__partners}>
         <Partner title={"Parceiros"} />
         <Partner title={"Parceiros"} />
       </div>
@@ -206,4 +206,4 @@ const Produtos: React.FC<Props> = ({ produtos, selecionaProduto, onModal }) => {
   );
 };
 
-export default Produtos;
+export default Products;

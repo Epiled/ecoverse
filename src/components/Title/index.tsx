@@ -1,15 +1,12 @@
-import classNames from 'classnames';
-import style from './styles.module.scss'
+import classNames from "classnames";
+import style from "./styles.module.scss";
 
-function Title({children, alt}: {children: string, alt?: boolean}) {
+function Title({ children, alt }: { children: string; alt?: boolean }) {
   return (
-    <h2 className={classNames(
-      style.titulo,
-      {[ style['titulo--alt']]: alt }
-      )}>
+    <h2 className={classNames(style.title, { [style["title--alt"]]: alt })}>
       {children}
     </h2>
-  )
+  );
 }
 
 export default Title;

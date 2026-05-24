@@ -1,6 +1,6 @@
 import Title from "../Title";
 import style from "./styles.module.scss";
-import Marca from "./Marca";
+import Brand from "./Brand";
 import React, { useRef, useState } from "react";
 
 const Brands: React.FC = () => {
@@ -112,7 +112,7 @@ const Brands: React.FC = () => {
           const ref = React.createRef<HTMLAnchorElement>();
           produtosRef.current[index] = ref;
 
-          return <Marca key={index} ref={ref} />;
+          return <Brand key={index} ref={ref} />;
         })}
 
         <button

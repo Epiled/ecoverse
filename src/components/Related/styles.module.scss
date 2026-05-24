@@ -1,4 +1,4 @@
-.relacionados {
+.related {
   max-width: 128rem;
   margin: 0 auto;
 
@@ -12,7 +12,7 @@
     text-align: center;
   }
 
-  &__parceiros {
+  &__partners {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -29,5 +29,4 @@
       padding: 0;
     }
   }
-
 }

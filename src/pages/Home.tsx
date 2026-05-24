@@ -3,7 +3,7 @@ import Banner from "../components/Banner";
 import Menu from "../components/Menu";
 import Categories from "../components/Categories";
 import Products from "../components/Products";
-import Relacionados from "../components/Relacionados";
+import Related from "../components/Related";
 import Brands from "../components/Brands";
 import Rodape from "../components/Rodape";
 import Modal from "../components/Modal";
@@ -50,7 +50,7 @@ const Home: React.FC = () => {
         selecionaProduto={selecionaProduto}
         onModal={onModal}
       />
-      <Relacionados />
+      <Related />
       <Brands />
       {modalAberta && (
         <Modal produtoSelecionado={produtoSelecionado} offModal={offModal} />

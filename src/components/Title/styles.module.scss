@@ -1,0 +1,39 @@
+.title {
+  position: relative;
+  color: var(--color-main);
+  font-weight: 700;
+  font-size: 3rem;
+  text-align: center;
+
+  @media screen and (min-width: 1280px) {
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 6.5rem;
+      width: 36rem;
+      height: 0.1rem;
+      background-color: var(--color-white-5);
+      content: "";
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 6.5rem;
+      width: 36rem;
+      height: 0.1rem;
+      background-color: var(--color-white-5);
+      content: "";
+    }
+  }
+
+  &--alt {
+    &::before {
+      height: 0rem;
+    }
+
+    &::after {
+      height: 0rem;
+    }
+  }
+}

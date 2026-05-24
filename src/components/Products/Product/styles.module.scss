@@ -1,0 +1,77 @@
+.product {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.3rem 1.9rem 0 var(--shadow-1);
+  padding: 1.7rem 1rem;
+  width: 100%;
+  max-width: 27rem;
+  opacity: 1;
+  transform: translateX(0px);
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+
+  &[data-visible="false"] {
+    opacity: 0;
+  }
+
+  &__title {
+    color: var(--color-gray-darker-1);
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 1rem 0;
+  }
+
+  &__oldValue {
+    color: var(--color-gray-lighter-2);
+    font-size: 1.6rem;
+    font-weight: 400;
+    text-decoration: line-through;
+  }
+
+  &__value {
+    color: var(--color-gray-darker-1);
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__installment {
+    color: var(--color-gray-darker-1);
+    font-size: 1.2rem;
+  }
+
+  &__shipping {
+    color: var(--color-main);
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  &__button {
+    background-color: var(--color-main);
+    text-align: center;
+    border-radius: 0.4rem;
+    color: var(--lighter);
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 1rem;
+    height: 4.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-main-hover);
+    }
+  }
+
+  &__hidden {
+    opacity: 0;
+    border: 5px solid blue;
+  }
+}

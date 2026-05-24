@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Parceiro from "../Parceiro";
+import Partner from "../Partner";
 import Title from "../Title";
 import style from "./Relacionados.module.scss";
 
@@ -13,8 +13,8 @@ const Relacionados: React.FC = () => {
       </Link>
 
       <div className={style.relacionados__parceiros}>
-        <Parceiro titulo={"Produtos"} className={"parceiro--alt"} />
-        <Parceiro titulo={"Produtos"} className={"parceiro--alt"} />
+        <Partner title={"Produtos"} className={"parceiro--alt"} />
+        <Partner title={"Produtos"} className={"parceiro--alt"} />
       </div>
     </section>
   );

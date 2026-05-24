@@ -1,5 +1,5 @@
 import style from "./Produtos.module.scss";
-import Parceiro from "../Parceiro";
+import Partner from "../Partner";
 import Title from "../Title";
 import Produto from "./Produto";
 import { IProduto } from "../../interfaces/IProduto";
@@ -199,8 +199,8 @@ const Produtos: React.FC<Props> = ({ produtos, selecionaProduto, onModal }) => {
       </div>
 
       <div className={style.produtos__parceiros}>
-        <Parceiro titulo={"Parceiros"} />
-        <Parceiro titulo={"Parceiros"} />
+        <Partner title={"Parceiros"} />
+        <Partner title={"Parceiros"} />
       </div>
     </section>
   );

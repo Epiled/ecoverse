@@ -1,7 +1,7 @@
 import style from "./styles.module.scss";
 import Partner from "../Partner";
 import Title from "../Title";
-import Produto from "./Produto";
+import Product from "./Product";
 import { IProduto } from "../../interfaces/IProduto";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -165,7 +165,7 @@ const Products: React.FC<Props> = ({ products, selecionaProduto, onModal }) => {
               productsRef.current[index] = React.createRef();
 
               return (
-                <Produto
+                <Product
                   index={index}
                   key={index}
                   ref={productsRef.current[index]}

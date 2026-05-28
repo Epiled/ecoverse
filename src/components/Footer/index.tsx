@@ -1,15 +1,15 @@
 /// <reference types="vite-plugin-svgr/client" />
 import style from "./styles.module.scss";
-import Alelo from "../../assets/svg/formas-de-pagamento/alelo.svg?react";
-import Amex from "../../assets/svg/formas-de-pagamento/amex.svg?react";
-import Dinners from "../../assets/svg/formas-de-pagamento/dinners.svg?react";
-import Elo from "../../assets/svg/formas-de-pagamento/elo.svg?react";
-import Ifood from "../../assets/svg/formas-de-pagamento/ifood.svg?react";
-import Mastercard from "../../assets/svg/formas-de-pagamento/mastercard.svg?react";
-import Pix from "../../assets/svg/formas-de-pagamento/pix.svg?react";
-import Sodexo from "../../assets/svg/formas-de-pagamento/sodexo.svg?react";
-import Ticket from "../../assets/svg/formas-de-pagamento/ticket.svg?react";
-import Visa from "../../assets/svg/formas-de-pagamento/visa.svg?react";
+import Alelo from "../../assets/svg/payment-brands/alelo.svg?react";
+import Amex from "../../assets/svg/payment-brands/amex.svg?react";
+import Dinners from "../../assets/svg/payment-brands/dinners.svg?react";
+import Elo from "../../assets/svg/payment-brands/elo.svg?react";
+import Ifood from "../../assets/svg/payment-brands/ifood.svg?react";
+import Mastercard from "../../assets/svg/payment-brands/mastercard.svg?react";
+import Pix from "../../assets/svg/payment-brands/pix.svg?react";
+import Sodexo from "../../assets/svg/payment-brands/sodexo.svg?react";
+import Ticket from "../../assets/svg/payment-brands/ticket.svg?react";
+import Visa from "../../assets/svg/payment-brands/visa.svg?react";
 
 import RodapeImagem from "../../assets/svg/rodape__imagem.svg?react";
 

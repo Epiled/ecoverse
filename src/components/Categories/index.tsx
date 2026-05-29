@@ -1,12 +1,14 @@
-import monitorarTabletSmartphone from "../../assets/svg/monitorar-tablet-e-smartohone-1.svg";
-import supermercados from "../../assets/svg/supermercados-1.svg";
-import whiskey from "../../assets/svg/whiskey.svg";
-import ferramentas from "../../assets/svg/ferramentas-1.svg";
-import cuidadosDeSaude from "../../assets/svg/cuidados-de-saude-1.svg";
-import corrida from "../../assets/svg/corrida-1.svg";
-import moda from "../../assets/svg/moda-1.svg";
-import style from "./styles.module.scss";
 import classNames from "classnames";
+
+import devices from "../../assets/svg/devices.svg";
+import supermarket from "../../assets/svg/supermarket.svg";
+import whiskey from "../../assets/svg/whiskey.svg";
+import tools from "../../assets/svg/tools.svg";
+import healthCare from "../../assets/svg/health-care.svg";
+import runningTreadmill from "../../assets/svg/running-treadmill.svg";
+import fashion from "../../assets/svg/fashion.svg";
+
+import style from "./styles.module.scss";
 
 interface ICategory {
   image: string;
@@ -16,12 +18,12 @@ interface ICategory {
 
 const ListCategories: ICategory[] = [
   {
-    image: monitorarTabletSmartphone,
+    image: devices,
     text: "Tecnologia",
     default: false,
   },
   {
-    image: supermercados,
+    image: supermarket,
     text: "Supermercado",
     default: true,
   },
@@ -31,22 +33,22 @@ const ListCategories: ICategory[] = [
     default: true,
   },
   {
-    image: ferramentas,
+    image: tools,
     text: "Ferramentas",
     default: true,
   },
   {
-    image: cuidadosDeSaude,
+    image: healthCare,
     text: "Saúde",
     default: true,
   },
   {
-    image: corrida,
+    image: runningTreadmill,
     text: "Esportes e Fitness",
     default: true,
   },
   {
-    image: moda,
+    image: fashion,
     text: "Moda",
     default: true,
   },

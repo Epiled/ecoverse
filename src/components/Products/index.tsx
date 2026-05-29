@@ -1,11 +1,15 @@
-import style from "./styles.module.scss";
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
 import Partner from "../Partner";
 import Title from "../Title";
 import Product from "./Product";
-import { IProduto } from "../../interfaces/IProduto";
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 import ErrorFeedBack from "../ErrorFeedBack";
+
+import { IProduto } from "../../interfaces/IProduto";
+
+import style from "./styles.module.scss";
+
 interface Props {
   products: IProduto[];
   selecionaProduto: (produtoSelecionado: IProduto) => void;

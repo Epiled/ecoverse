@@ -1,5 +1,8 @@
+import React from "react";
 import classNames from "classnames";
+
 import Button from "../Button";
+
 import style from "./styles.module.scss";
 
 interface Props {
@@ -19,7 +22,7 @@ const Partner: React.FC<Props> = ({ title, className }) => {
         <p className={style.partner__text}>
           Lorem ipsum dolor sit amet, consectetur
         </p>
-        <Button ancora="#" className="botao--partner">
+        <Button ancora="#" className="button--partner">
           Confira
         </Button>
       </div>

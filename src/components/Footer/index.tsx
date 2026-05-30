@@ -1,5 +1,9 @@
 /// <reference types="vite-plugin-svgr/client" />
-import style from "./styles.module.scss";
+import React from "react";
+import { Link } from "react-router-dom";
+
+import Button from "../Button";
+
 import Alelo from "../../assets/svg/payment-brands/alelo.svg?react";
 import Amex from "../../assets/svg/payment-brands/amex.svg?react";
 import Dinners from "../../assets/svg/payment-brands/dinners.svg?react";
@@ -17,8 +21,7 @@ import Facebook from "../../assets/svg/social/facebook.svg?react";
 import Instagram from "../../assets/svg/social/instagram.svg?react";
 import Youtube from "../../assets/svg/social/youtube.svg?react";
 
-import Button from "../Button";
-import { Link } from "react-router-dom";
+import style from "./styles.module.scss";
 
 const Footer: React.FC = () => {
   return (
@@ -110,7 +113,7 @@ const Footer: React.FC = () => {
               name=""
               id=""
             />
-            <Button className={"botao--form"} ancora="#">
+            <Button className={"button--form"} ancora="#">
               Ok
             </Button>
           </form>

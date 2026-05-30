@@ -1,7 +1,9 @@
 import { forwardRef } from "react";
-import style from "./styles.module.scss";
-import vtex from "../../../assets/img/logo.png";
 import { Link } from "react-router-dom";
+
+import vtex from "../../../assets/img/logo.png";
+
+import style from "./styles.module.scss";
 
 const Brand = forwardRef<HTMLAnchorElement>((_, ref) => {
   return (

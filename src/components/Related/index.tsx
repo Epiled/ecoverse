@@ -1,6 +1,9 @@
+import React from "react";
 import { Link } from "react-router-dom";
+
 import Partner from "../Partner";
 import Title from "../Title";
+
 import style from "./styles.module.scss";
 
 const Related: React.FC = () => {

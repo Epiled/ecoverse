@@ -38,17 +38,23 @@ const Top: React.FC = () => {
       {Topo.map((item, index) => {
         return (
           <span key={index} className={style.top__container}>
-            <img src={item.imagem} width="20px" height="20px" alt="#" />
+            <img
+              className={style.top__image}
+              src={item.imagem}
+              width="20px"
+              height="20px"
+              alt="#"
+            />
 
             {item.padrao ? (
-              <span className={style.top__txt}>
-                <span className={style.top__destaque}>{item.destaque}</span>
+              <span className={style.top__text}>
+                <span className={style.top__highlight}>{item.destaque}</span>
                 {item.texto}
               </span>
             ) : (
-              <span className={style.top__txt}>
+              <span className={style.top__text}>
                 {item.texto}
-                <span className={style.top__destaque}>{item.destaque}</span>
+                <span className={style.top__highlight}>{item.destaque}</span>
               </span>
             )}
           </span>

@@ -1,7 +1,9 @@
-import Title from "../Title";
-import style from "./styles.module.scss";
-import Brand from "./Brand";
 import React, { useRef, useState } from "react";
+
+import Title from "../Title";
+import Brand from "./Brand";
+
+import style from "./styles.module.scss";
 
 const Brands: React.FC = () => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -116,7 +118,7 @@ const Brands: React.FC = () => {
         })}
 
         <button
-          className={style.brands__avancar}
+          className={style.brands__next}
           aria-label="Botão de avançar marcas"
           onClick={(e) => {
             moverItens(e);

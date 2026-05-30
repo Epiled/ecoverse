@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Partner from "../Partner";
 import Title from "../Title";
 import Product from "./Product";
-import ErrorFeedBack from "../ErrorFeedBack";
+import Feedback from "../Feedback";
 
 import { IProduto } from "../../interfaces/IProduto";
 
@@ -199,7 +199,7 @@ const Products: React.FC<Props> = ({ products, selecionaProduto, onModal }) => {
           ></button>
         </div>
 
-        {!hasProduct && <ErrorFeedBack />}
+        {!hasProduct && <Feedback />}
       </div>
 
       <div className={style.products__partners}>

@@ -35,44 +35,50 @@ const Modal: React.FC<ModalProps> = ({ produtoSelecionado, offModal }) => {
     <aside className={style.modal}>
       <div className={style.modal__box}>
         <div
-          className={`${style.modal__container} ${style["modal__container--imagem"]}`}
+          className={`${style.modal__container} ${style["modal__container--image"]}`}
         >
-          <img src={foto} className={style.modal__imagem} alt="" />
+          <img src={foto} className={style.modal__image} alt="" />
         </div>
         <div className={style.modal__container}>
-          <h3 className={style.modal__titulo}>
+          <h3 className={style.modal__title}>
             {produtoSelecionado?.productName}
           </h3>
-          <span className={style.modal__preco}>
+          <span className={style.modal__price}>
             R${" "}
             {produtoSelecionado?.price
               .toFixed(2)
               .replace(".", ",")
               .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
           </span>
-          <p className={style.modal__txt}>
+          <p className={style.modal__text}>
             {produtoSelecionado?.descriptionShort}
           </p>
           <span className={style.modal__extra}>
             Veja mais detalhes do produto
           </span>
-          <div className={style.modal__ipts}>
-            <button className={style.modal__arit} onClick={handleDecrement}>
+          <div className={style.modal__inputs}>
+            <button
+              className={style.modal__arithmetic}
+              onClick={handleDecrement}
+            >
               -
             </button>
             <input
-              className={style.modal__qtd}
+              className={style.modal__quantity}
               type="number"
               id="modalQuantidade"
               name="modalQuantidade"
               value={quantidade}
               onChange={handleInputChange}
             />
-            <button className={style.modal__arit} onClick={handleIncrement}>
+            <button
+              className={style.modal__arithmetic}
+              onClick={handleIncrement}
+            >
               +
             </button>
           </div>
-          <button className={style.modal__btn}>Comprar</button>
+          <button className={style.modal__button}>Comprar</button>
         </div>
         <button className={style.modal__close} onClick={() => offModal(false)}>
           X

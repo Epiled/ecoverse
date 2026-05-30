@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
-import style from "./styles.module.scss";
 
 import Top from "./Top";
 import Mid from "./Mid";
 import Navigation from "./Navigation";
+
+import style from "./styles.module.scss";
 
 const Menu: React.FC = () => {
   const [menu, setMenu] = useState<boolean>(false);

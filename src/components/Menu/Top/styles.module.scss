@@ -8,7 +8,7 @@
   justify-content: space-around;
   align-items: center;
   height: 32px;
-  border-bottom: 1px solid #F0F0F0;
+  border-bottom: 1px solid #f0f0f0;
 
   @media screen and (max-width: 768px) {
     height: auto;
@@ -23,17 +23,17 @@
     align-items: center;
   }
 
-  &__txt {
+  &__image {
+    margin-right: 9px;
+  }
+
+  &__text {
     font-size: 1.2rem;
   }
 
-  &__destaque {
+  &__highlight {
     color: #f71963;
     font-weight: 600;
     font-size: inherit;
-  }
-
-  img {
-    margin-right: 9px;
   }
 }

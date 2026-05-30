@@ -1,4 +1,5 @@
 /// <reference types="vite-plugin-svgr/client" />
+import React from "react";
 import { Link } from "react-router-dom";
 
 import Group from "../../../assets/svg/group.svg?react";
@@ -11,6 +12,7 @@ import Close from "../../../assets/svg/close.svg?react";
 import logo from "../../../assets/img/webp/logo.webp";
 
 import style from "./styles.module.scss";
+
 interface IMid {
   menuOpen: boolean;
   setMenu: React.Dispatch<React.SetStateAction<boolean>>;
@@ -29,7 +31,7 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
       />
 
       <div className={style.mid__container}>
-        <div className={style.mid__busca}>
+        <div className={style.mid__search}>
           <input
             className={style.mid__ipt}
             placeholder="O que você está buscando?"
@@ -37,14 +39,14 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
             name=""
             id=""
           />
-          <button className={style.mid__btnBusca} aria-label="Buscar">
-            <MagnifyingGlass className={style.mid__btnIcon} />
+          <button className={style.mid__button} aria-label="Buscar">
+            <MagnifyingGlass className={style.mid__iconButton} />
           </button>
         </div>
 
         {menuOpen ? (
           <Close
-            className={style.mid__hamburguer}
+            className={style.mid__icon}
             width="50px"
             height="50px"
             title="Menu Hamburguer Close"
@@ -55,7 +57,7 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
           />
         ) : (
           <Menu
-            className={style.mid__hamburguer}
+            className={style.mid__icon}
             width="50px"
             height="50px"
             title="Menu Hamburguer Open"

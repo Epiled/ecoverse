@@ -1,4 +1,5 @@
 import classNames from "classnames";
+
 import style from "./styles.module.scss";
 
 function Title({ children, alt }: { children: string; alt?: boolean }) {

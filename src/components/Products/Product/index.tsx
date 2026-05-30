@@ -1,6 +1,8 @@
-import style from "./styles.module.scss";
-import { IProduto } from "../../../interfaces/IProduto";
 import { ForwardedRef, forwardRef } from "react";
+
+import { IProduto } from "../../../interfaces/IProduto";
+
+import style from "./styles.module.scss";
 
 interface Props extends IProduto {
   selecionaProduto: (produtoSelecionado: IProduto) => void;
@@ -33,13 +35,7 @@ const Product = forwardRef(
   ) => {
     return (
       <li className={style.product} ref={ref} key={index} data-visible="true">
-        <img
-          className={style.product__imagem}
-          src={photo}
-          width={247}
-          height={228}
-          alt="#"
-        />
+        <img src={photo} width={247} height={228} alt="#" />
         <h3 className={style.product__title}>{descriptionShort}</h3>
 
         <span className={style.product__oldValue}>

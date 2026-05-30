@@ -1,14 +1,8 @@
 import { ForwardedRef, forwardRef } from "react";
 
-import { IProduct } from "@/interfaces/IProduct";
+import { ProductProps } from "./types";
 
 import style from "./styles.module.scss";
-
-interface Props extends IProduct {
-  selectProduct: (product: IProduct) => void;
-  onModal: (onModal: boolean) => void;
-  index: number;
-}
 
 const formatValue = (value: number) => {
   const formattedValue = value
@@ -30,7 +24,7 @@ const Product = forwardRef(
       selectProduct,
       onModal,
       index,
-    }: Props,
+    }: ProductProps,
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     return (

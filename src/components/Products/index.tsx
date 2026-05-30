@@ -1,22 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
+import { ProductsProps } from "./type";
+
 import Partner from "../Partner";
 import Title from "../Title";
 import Product from "./Product";
 import Feedback from "../Feedback";
 
-import { IProduct } from "@/interfaces/IProduct";
-
 import style from "./styles.module.scss";
 
-interface Props {
-  products: IProduct[];
-  selectProduct: (product: IProduct) => void;
-  onModal: (onModal: boolean) => void;
-}
-
-const Products: React.FC<Props> = ({ products, selectProduct, onModal }) => {
+const Products: React.FC<ProductsProps> = ({
+  products,
+  selectProduct,
+  onModal,
+}) => {
   const ref = useRef<HTMLUListElement | null>(null);
   const productsRef = useRef<Array<React.RefObject<HTMLLIElement>>>([]);
 

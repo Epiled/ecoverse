@@ -1,15 +1,10 @@
 import { useState } from "react";
 
-import { IProduct } from "@/interfaces/IProduct";
+import { ModalProps } from "./types";
 
 import photo from "@/assets/img/mobile.png";
 
 import style from "./styles.module.scss";
-
-interface ModalProps {
-  product?: IProduct;
-  offModal: (onModal: boolean) => void;
-}
 
 const Modal: React.FC<ModalProps> = ({ product, offModal }) => {
   const [quantity, setQuantity] = useState(1);

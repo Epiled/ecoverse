@@ -1,16 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { NavigationProps } from "./types";
+
 import Crown from "@/assets/svg/crown.svg?react";
 
 import style from "./styles.module.scss";
 
-interface INavigation {
-  menuHeight: number;
-  menuRef: React.RefObject<HTMLDivElement>;
-}
-
-const Navigation: React.FC<INavigation> = ({ menuHeight, menuRef }) => {
+const Navigation: React.FC<NavigationProps> = ({ menuHeight, menuRef }) => {
   return (
     <div
       className={style.navigation}

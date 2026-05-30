@@ -2,6 +2,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import { MidProps } from "./types";
+
 import Group from "@/assets/svg/group.svg?react";
 import Heart from "@/assets/svg/heart.svg?react";
 import User from "@/assets/svg/user.svg?react";
@@ -13,13 +15,7 @@ import logo from "@/assets/img/webp/logo.webp";
 
 import style from "./styles.module.scss";
 
-interface IMid {
-  menuOpen: boolean;
-  setMenu: React.Dispatch<React.SetStateAction<boolean>>;
-  handlerMobileMenu: () => void;
-}
-
-const Mid: React.FC<IMid> = ({ setMenu, menuOpen, handlerMobileMenu }) => {
+const Mid: React.FC<MidProps> = ({ menuOpen, setMenu, handlerMobileMenu }) => {
   return (
     <div className={style.mid}>
       <img

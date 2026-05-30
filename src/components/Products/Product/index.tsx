@@ -1,21 +1,21 @@
 import { ForwardedRef, forwardRef } from "react";
 
-import { IProduto } from "../../../interfaces/IProduto";
+import { IProduct } from "../../../interfaces/IProduct";
 
 import style from "./styles.module.scss";
 
-interface Props extends IProduto {
-  selecionaProduto: (produtoSelecionado: IProduto) => void;
+interface Props extends IProduct {
+  selectProduct: (product: IProduct) => void;
   onModal: (onModal: boolean) => void;
   index: number;
 }
 
 const formatValue = (value: number) => {
-  const valueFormated = value
+  const formattedValue = value
     .toFixed(2)
     .replace(".", ",")
     .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  return valueFormated;
+  return formattedValue;
 };
 
 const Product = forwardRef(
@@ -26,8 +26,8 @@ const Product = forwardRef(
       price,
       productName,
       id,
-      produtoSelecionado,
-      selecionaProduto,
+      selected,
+      selectProduct,
       onModal,
       index,
     }: Props,
@@ -52,13 +52,13 @@ const Product = forwardRef(
           className={style.product__button}
           type="button"
           onClick={() => {
-            selecionaProduto({
+            selectProduct({
               descriptionShort,
               photo,
               price,
               productName,
               id,
-              produtoSelecionado,
+              selected,
             });
             onModal(true);
           }}

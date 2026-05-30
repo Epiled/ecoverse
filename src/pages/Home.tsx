@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
 import Banner from "../components/Banner";
 import Menu from "../components/Menu";
 import Categories from "../components/Categories";
@@ -7,27 +8,29 @@ import Related from "../components/Related";
 import Brands from "../components/Brands";
 import Footer from "../components/Footer";
 import Modal from "../components/Modal";
-import { IProduto } from "../interfaces/IProduto";
+
+import { IProduct } from "../interfaces/IProduct";
+
 import { useDadosProdutos } from "../service/useProdutos";
 
 const Home: React.FC = () => {
-  const [produtos, setProdutos] = useState<IProduto[]>([]);
-  const [produtoSelecionado, setProdutoSelecionado] = useState<IProduto>();
-  const [modalAberta, setModal] = useState(false);
+  const [products, setProducts] = useState<IProduct[]>([]);
+  const [selectedProduct, setSelectedProduct] = useState<IProduct>();
+  const [modal, setModal] = useState(false);
 
   const { dados } = useDadosProdutos();
 
   useEffect(() => {
-    dados && setProdutos(dados);
+    dados && setProducts(dados);
   }, [dados]);
 
-  function selecionaProduto(produtoSelecionado: IProduto) {
-    setProdutoSelecionado(produtoSelecionado);
-    setProdutos((produtosAnteriores) =>
-      produtosAnteriores.map((produto, index) => ({
-        ...produto,
+  function selectProduct(product: IProduct) {
+    setSelectedProduct(product);
+    setProducts((prev) =>
+      prev.map((product, index) => ({
+        ...product,
         id: String(index),
-        selecionado: produto.id === produtoSelecionado.id ? true : false,
+        selected: product.id === product.id ? true : false,
       })),
     );
   }
@@ -46,15 +49,13 @@ const Home: React.FC = () => {
       <Banner />
       <Categories />
       <Products
-        products={produtos}
-        selecionaProduto={selecionaProduto}
+        products={products}
+        selectProduct={selectProduct}
         onModal={onModal}
       />
       <Related />
       <Brands />
-      {modalAberta && (
-        <Modal produtoSelecionado={produtoSelecionado} offModal={offModal} />
-      )}
+      {modal && <Modal product={selectedProduct} offModal={offModal} />}
       <Footer />
     </>
   );

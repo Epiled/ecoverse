@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
               name=""
               id=""
             />
-            <Button className={"button--form"} ancora="#">
+            <Button className={"button--form"} link="#">
               Ok
             </Button>
           </form>

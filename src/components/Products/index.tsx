@@ -6,121 +6,117 @@ import Title from "../Title";
 import Product from "./Product";
 import Feedback from "../Feedback";
 
-import { IProduto } from "../../interfaces/IProduto";
+import { IProduct } from "../../interfaces/IProduct";
 
 import style from "./styles.module.scss";
 
 interface Props {
-  products: IProduto[];
-  selecionaProduto: (produtoSelecionado: IProduto) => void;
+  products: IProduct[];
+  selectProduct: (product: IProduct) => void;
   onModal: (onModal: boolean) => void;
 }
 
-const Products: React.FC<Props> = ({ products, selecionaProduto, onModal }) => {
+const Products: React.FC<Props> = ({ products, selectProduct, onModal }) => {
   const ref = useRef<HTMLUListElement | null>(null);
   const productsRef = useRef<Array<React.RefObject<HTMLLIElement>>>([]);
 
-  const [animando, setAnimando] = useState(false);
-  const containerTamanho = ref.current?.getBoundingClientRect().width || 0;
+  const [animate, setAnimate] = useState(false);
+  const containerWidth = ref.current?.getBoundingClientRect().width || 0;
   const containerX = ref.current?.getBoundingClientRect().x || 0;
-  const containerXEnd = containerX + containerTamanho;
-  const containerEstilos = ref?.current
+  const containerXEnd = containerX + containerWidth;
+  const containerStyles = ref?.current
     ? window.getComputedStyle(ref.current)
     : 0;
-  const containerGap = containerEstilos ? parseFloat(containerEstilos.gap) : 0;
+  const containerGap = containerStyles ? parseFloat(containerStyles.gap) : 0;
 
-  // Carroussel função e regras
-  function moverItens(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    if (animando) return; // Evita cliques durante a animação
-    setAnimando(true);
-    const sentido = e.currentTarget.dataset.sentido;
-    let estiloAtual;
-    let valorAtual = 0;
-    let larguraProduto = 0;
+  // Carousel function and rules
+  function moveItems(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    if (animate) return; // Prevent clicks duration animation
+    setAnimate(true);
+    const direction = e.currentTarget.dataset.direction;
+    let currentStyles;
+    let currentValue = 0;
+    let productWidth = 0;
 
-    const produtoRefPrimeiro = productsRef.current[0].current;
-    const produtoRefPrimeiroPosition =
-      produtoRefPrimeiro?.getBoundingClientRect().x || 0;
+    const firstProductRef = productsRef.current[0].current;
+    const firstProductRefPosition =
+      firstProductRef?.getBoundingClientRect().x || 0;
 
-    const produtoRefUltimo = productsRef.current.at(-1)?.current;
-    const produtoRefUltimoPosition =
-      produtoRefUltimo?.getBoundingClientRect().x || 0;
+    const lastProductRef = productsRef.current.at(-1)?.current;
+    const lastProductPositionRef =
+      lastProductRef?.getBoundingClientRect().x || 0;
 
-    if (produtoRefPrimeiro) {
-      estiloAtual = getComputedStyle(produtoRefPrimeiro);
-      ({ valorAtual, larguraProduto } = handlePosition(
-        estiloAtual,
-        produtoRefPrimeiro,
+    if (firstProductRef) {
+      currentStyles = getComputedStyle(firstProductRef);
+      ({ currentValue, productWidth } = handlePosition(
+        currentStyles,
+        firstProductRef,
       ));
     }
 
-    productsRef.current.forEach((produtoRef) => {
-      const produto = produtoRef.current;
-      if (produto) {
-        estiloAtual = getComputedStyle(produto);
+    productsRef.current.forEach((productRef) => {
+      const product = productRef.current;
+      if (product) {
+        currentStyles = getComputedStyle(product);
 
-        let novaPosicao = 0;
-        const deslocamentoBase = larguraProduto + containerGap;
+        let newPosition = 0;
+        const displacementBase = productWidth + containerGap;
 
-        if (sentido === "left") {
-          const foraDoContainer = produtoRefPrimeiroPosition - containerX;
+        if (direction === "left") {
+          const foraDoContainer = firstProductRefPosition - containerX;
 
           if (foraDoContainer >= 0) return;
 
-          novaPosicao = valorAtual + deslocamentoBase;
-          produto.style.transform = `translateX(${novaPosicao}px)`;
-          const posicaoAlterada =
-            produto.getBoundingClientRect().x + deslocamentoBase;
-          checkInArea(produto, posicaoAlterada);
+          newPosition = currentValue + displacementBase;
+          product.style.transform = `translateX(${newPosition}px)`;
+          const positionChanged =
+            product.getBoundingClientRect().x + displacementBase;
+          checkInArea(product, positionChanged);
         } else {
-          if (produtoRefUltimoPosition <= containerXEnd - larguraProduto)
-            return;
+          if (lastProductPositionRef <= containerXEnd - productWidth) return;
 
-          novaPosicao = valorAtual - deslocamentoBase;
-          produto.style.transform = `translateX(${novaPosicao}px)`;
-          const posicaoAlterada =
-            produto.getBoundingClientRect().x - deslocamentoBase;
-          checkInArea(produto, posicaoAlterada);
+          newPosition = currentValue - displacementBase;
+          product.style.transform = `translateX(${newPosition}px)`;
+          const positionChanged =
+            product.getBoundingClientRect().x - displacementBase;
+          checkInArea(product, positionChanged);
         }
       }
     });
 
-    // Intervalo para pressionar o botão novamente
+    // Interval to press button again
     setTimeout(() => {
-      setAnimando(false);
-    }, 500); // Ajuste o tempo conforme necessário para a duração da animação
+      setAnimate(false);
+    }, 500); // Adjust time according to necessary to change animation duration
   }
 
-  function checkInArea(produto: HTMLLIElement, posicaoAtual: number) {
-    if (posicaoAtual >= containerX && posicaoAtual < containerXEnd) {
-      produto.dataset.visible = "true";
+  function checkInArea(product: HTMLLIElement, currentPosition: number) {
+    if (currentPosition >= containerX && currentPosition < containerXEnd) {
+      product.dataset.visible = "true";
     } else {
-      produto.dataset.visible = "false";
+      product.dataset.visible = "false";
     }
   }
 
-  // Função Auxiliar do carroussel para coletar alguns valores
-  function handlePosition(
-    estilos: CSSStyleDeclaration,
-    produto: HTMLLIElement,
-  ) {
-    const translateXAtual = estilos?.transform.replace(/[^0-9,-]/g, "");
-    const valorAtual = translateXAtual
-      ? parseFloat(translateXAtual.split(",")[4].trim())
+  // Handler function to carousel get necessary values
+  function handlePosition(styles: CSSStyleDeclaration, product: HTMLLIElement) {
+    const currentTranslateX = styles?.transform.replace(/[^0-9,-]/g, "");
+    const currentValue = currentTranslateX
+      ? parseFloat(currentTranslateX.split(",")[4].trim())
       : 0;
-    const larguraProduto = produto.getBoundingClientRect().width;
+    const productWidth = product.getBoundingClientRect().width;
 
-    return { valorAtual, larguraProduto };
+    return { currentValue, productWidth };
   }
 
   const [hasProduct, setHasProduct] = useState(false);
 
   useEffect(() => {
-    productsRef.current.forEach((produtoRef) => {
-      const produto = produtoRef.current;
-      if (produto) {
-        const posicaoAtual = produto.getBoundingClientRect().x;
-        checkInArea(produto, posicaoAtual);
+    productsRef.current.forEach((productRef) => {
+      const product = productRef.current;
+      if (product) {
+        const currentPosition = product.getBoundingClientRect().x;
+        checkInArea(product, currentPosition);
         setHasProduct(true);
       }
     });
@@ -165,7 +161,7 @@ const Products: React.FC<Props> = ({ products, selecionaProduto, onModal }) => {
       <div className={style.products__vitrine}>
         <ul className={style.products__wrap} ref={ref}>
           {products.length > 0 &&
-            products.map((produto, index) => {
+            products.map((product, index) => {
               productsRef.current[index] = React.createRef();
 
               return (
@@ -173,9 +169,9 @@ const Products: React.FC<Props> = ({ products, selecionaProduto, onModal }) => {
                   index={index}
                   key={index}
                   ref={productsRef.current[index]}
-                  selecionaProduto={selecionaProduto}
+                  selectProduct={selectProduct}
                   onModal={onModal}
-                  {...produto}
+                  {...product}
                 />
               );
             })}
@@ -183,17 +179,17 @@ const Products: React.FC<Props> = ({ products, selecionaProduto, onModal }) => {
         <div className={style.products__arrows}>
           <button
             onClick={(e) => {
-              moverItens(e);
+              moveItems(e);
             }}
-            data-sentido="left"
+            data-direction="left"
             className={`${style.products__arrow} ${style["products__arrow--left"]}`}
             aria-label="Retroceder lista de products"
           ></button>
           <button
             onClick={(e) => {
-              moverItens(e);
+              moveItems(e);
             }}
-            data-sentido="right"
+            data-direction="right"
             className={`${style.products__arrow} ${style["products__arrow--right"]}`}
             aria-label="Avançar lista de products"
           ></button>

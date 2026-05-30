@@ -13,7 +13,7 @@ const Banner: React.FC = () => {
             Venha conhecer nossas promoções
             <span className={style.banner__discount}>50% Off nos produtos</span>
           </h1>
-          <Button ancora="#" className={"button--banner"}>
+          <Button link="#" className={"button--banner"}>
             Ver Produto
           </Button>
         </div>

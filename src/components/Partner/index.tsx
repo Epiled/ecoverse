@@ -22,7 +22,7 @@ const Partner: React.FC<Props> = ({ title, className }) => {
         <p className={style.partner__text}>
           Lorem ipsum dolor sit amet, consectetur
         </p>
-        <Button ancora="#" className="button--partner">
+        <Button link="#" className="button--partner">
           Confira
         </Button>
       </div>

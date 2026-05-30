@@ -1,33 +1,33 @@
 import { useState } from "react";
 
-import { IProduto } from "../../interfaces/IProduto";
+import { IProduct } from "../../interfaces/IProduct";
 
-import foto from "../../assets/img/mobile.png";
+import photo from "../../assets/img/mobile.png";
 
 import style from "./styles.module.scss";
 
 interface ModalProps {
-  produtoSelecionado?: IProduto;
+  product?: IProduct;
   offModal: (onModal: boolean) => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ produtoSelecionado, offModal }) => {
-  const [quantidade, setQuantidade] = useState(1);
+const Modal: React.FC<ModalProps> = ({ product, offModal }) => {
+  const [quantity, setQuantity] = useState(1);
 
   const handleDecrement = () => {
-    if (quantidade > 1) {
-      setQuantidade(quantidade - 1);
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
   };
 
   const handleIncrement = () => {
-    setQuantidade(quantidade + 1);
+    setQuantity(quantity + 1);
   };
 
   const handleInputChange = (event: { target: { value: string } }) => {
     const value = parseInt(event.target.value, 10);
     if (!isNaN(value) && value >= 1) {
-      setQuantidade(value);
+      setQuantity(value);
     }
   };
 
@@ -37,22 +37,18 @@ const Modal: React.FC<ModalProps> = ({ produtoSelecionado, offModal }) => {
         <div
           className={`${style.modal__container} ${style["modal__container--image"]}`}
         >
-          <img src={foto} className={style.modal__image} alt="" />
+          <img src={photo} className={style.modal__image} alt="#" />
         </div>
         <div className={style.modal__container}>
-          <h3 className={style.modal__title}>
-            {produtoSelecionado?.productName}
-          </h3>
+          <h3 className={style.modal__title}>{product?.productName}</h3>
           <span className={style.modal__price}>
             R${" "}
-            {produtoSelecionado?.price
+            {product?.price
               .toFixed(2)
               .replace(".", ",")
               .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
           </span>
-          <p className={style.modal__text}>
-            {produtoSelecionado?.descriptionShort}
-          </p>
+          <p className={style.modal__text}>{product?.descriptionShort}</p>
           <span className={style.modal__extra}>
             Veja mais detalhes do produto
           </span>
@@ -68,7 +64,7 @@ const Modal: React.FC<ModalProps> = ({ produtoSelecionado, offModal }) => {
               type="number"
               id="modalQuantidade"
               name="modalQuantidade"
-              value={quantidade}
+              value={quantity}
               onChange={handleInputChange}
             />
             <button

@@ -16,10 +16,10 @@ import style from "./styles.module.scss";
 interface IMid {
   menuOpen: boolean;
   setMenu: React.Dispatch<React.SetStateAction<boolean>>;
-  calculaMenu: () => void;
+  handlerMobileMenu: () => void;
 }
 
-const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
+const Mid: React.FC<IMid> = ({ setMenu, menuOpen, handlerMobileMenu }) => {
   return (
     <div className={style.mid}>
       <img
@@ -49,10 +49,10 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
             className={style.mid__icon}
             width="50px"
             height="50px"
-            title="Menu Hamburguer Close"
+            title="Menu Fechado"
             onClick={() => {
               setMenu(!menuOpen);
-              calculaMenu();
+              handlerMobileMenu();
             }}
           />
         ) : (
@@ -60,10 +60,10 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
             className={style.mid__icon}
             width="50px"
             height="50px"
-            title="Menu Hamburguer Open"
+            title="Menu Aberto"
             onClick={() => {
               setMenu(!menuOpen);
-              calculaMenu();
+              handlerMobileMenu();
             }}
           />
         )}
@@ -72,7 +72,7 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
       <nav className={style.mid__icons}>
         <Link
           className={style.mid__link}
-          to={""}
+          to={"/"}
           aria-label="Acessar acompanhamento de pedidos"
         >
           <Group
@@ -81,17 +81,17 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
         </Link>
         <Link
           className={style.mid__link}
-          to={""}
+          to={"/"}
           aria-label="Acessar favoritos"
         >
           <Heart className={style.mid__iconLink} />
         </Link>
-        <Link className={style.mid__link} to={""} aria-label="Acessar perfil">
+        <Link className={style.mid__link} to={"/"} aria-label="Acessar perfil">
           <User className={style.mid__iconLink} />
         </Link>
         <Link
           className={style.mid__link}
-          to={""}
+          to={"/"}
           aria-label="Acessar carrinho de compras"
         >
           <ShoppingCart className={style.mid__iconLink} />

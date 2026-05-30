@@ -15,7 +15,7 @@ import Sodexo from "@/assets/svg/payment-brands/sodexo.svg?react";
 import Ticket from "@/assets/svg/payment-brands/ticket.svg?react";
 import Visa from "@/assets/svg/payment-brands/visa.svg?react";
 
-import RodapeImagem from "@/assets/svg/rodape__imagem.svg?react";
+import RodapeImagem from "@/assets/svg/icons-ui/rodape__imagem.svg?react";
 
 import Facebook from "@/assets/svg/social/facebook.svg?react";
 import Instagram from "@/assets/svg/social/instagram.svg?react";

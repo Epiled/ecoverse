@@ -1,6 +1,6 @@
 import { ForwardedRef, forwardRef } from "react";
 
-import { IProduct } from "../../../interfaces/IProduct";
+import { IProduct } from "@/interfaces/IProduct";
 
 import style from "./styles.module.scss";
 

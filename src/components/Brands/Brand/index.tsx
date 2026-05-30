@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { Link } from "react-router-dom";
 
-import vtex from "../../../assets/img/logo.png";
+import vtex from "@/assets/img/logo.png";
 
 import style from "./styles.module.scss";
 

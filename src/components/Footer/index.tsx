@@ -4,22 +4,22 @@ import { Link } from "react-router-dom";
 
 import Button from "../Button";
 
-import Alelo from "../../assets/svg/payment-brands/alelo.svg?react";
-import Amex from "../../assets/svg/payment-brands/amex.svg?react";
-import Dinners from "../../assets/svg/payment-brands/dinners.svg?react";
-import Elo from "../../assets/svg/payment-brands/elo.svg?react";
-import Ifood from "../../assets/svg/payment-brands/ifood.svg?react";
-import Mastercard from "../../assets/svg/payment-brands/mastercard.svg?react";
-import Pix from "../../assets/svg/payment-brands/pix.svg?react";
-import Sodexo from "../../assets/svg/payment-brands/sodexo.svg?react";
-import Ticket from "../../assets/svg/payment-brands/ticket.svg?react";
-import Visa from "../../assets/svg/payment-brands/visa.svg?react";
+import Alelo from "@/assets/svg/payment-brands/alelo.svg?react";
+import Amex from "@/assets/svg/payment-brands/amex.svg?react";
+import Dinners from "@/assets/svg/payment-brands/dinners.svg?react";
+import Elo from "@/assets/svg/payment-brands/elo.svg?react";
+import Ifood from "@/assets/svg/payment-brands/ifood.svg?react";
+import Mastercard from "@/assets/svg/payment-brands/mastercard.svg?react";
+import Pix from "@/assets/svg/payment-brands/pix.svg?react";
+import Sodexo from "@/assets/svg/payment-brands/sodexo.svg?react";
+import Ticket from "@/assets/svg/payment-brands/ticket.svg?react";
+import Visa from "@/assets/svg/payment-brands/visa.svg?react";
 
-import RodapeImagem from "../../assets/svg/rodape__imagem.svg?react";
+import RodapeImagem from "@/assets/svg/rodape__imagem.svg?react";
 
-import Facebook from "../../assets/svg/social/facebook.svg?react";
-import Instagram from "../../assets/svg/social/instagram.svg?react";
-import Youtube from "../../assets/svg/social/youtube.svg?react";
+import Facebook from "@/assets/svg/social/facebook.svg?react";
+import Instagram from "@/assets/svg/social/instagram.svg?react";
+import Youtube from "@/assets/svg/social/youtube.svg?react";
 
 import style from "./styles.module.scss";
 

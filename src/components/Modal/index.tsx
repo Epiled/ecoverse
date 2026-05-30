@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { IProduct } from "../../interfaces/IProduct";
+import { IProduct } from "@/interfaces/IProduct";
 
-import photo from "../../assets/img/mobile.png";
+import photo from "@/assets/img/mobile.png";
 
 import style from "./styles.module.scss";
 

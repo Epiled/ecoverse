@@ -6,7 +6,7 @@ import Title from "../Title";
 import Product from "./Product";
 import Feedback from "../Feedback";
 
-import { IProduct } from "../../interfaces/IProduct";
+import { IProduct } from "@/interfaces/IProduct";
 
 import style from "./styles.module.scss";
 

@@ -1,13 +1,13 @@
 import React from "react";
 import classNames from "classnames";
 
-import devices from "../../assets/svg/devices.svg";
-import supermarket from "../../assets/svg/supermarket.svg";
-import whiskey from "../../assets/svg/whiskey.svg";
-import tools from "../../assets/svg/tools.svg";
-import healthCare from "../../assets/svg/health-care.svg";
-import runningTreadmill from "../../assets/svg/running-treadmill.svg";
-import fashion from "../../assets/svg/fashion.svg";
+import devices from "@/assets/svg/devices.svg";
+import supermarket from "@/assets/svg/supermarket.svg";
+import whiskey from "@/assets/svg/whiskey.svg";
+import tools from "@/assets/svg/tools.svg";
+import healthCare from "@/assets/svg/health-care.svg";
+import runningTreadmill from "@/assets/svg/running-treadmill.svg";
+import fashion from "@/assets/svg/fashion.svg";
 
 import style from "./styles.module.scss";
 

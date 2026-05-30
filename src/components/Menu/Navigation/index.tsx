@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Crown from "../../../assets/svg/crown.svg?react";
+import Crown from "@/assets/svg/crown.svg?react";
 
 import style from "./styles.module.scss";
 

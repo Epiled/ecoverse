@@ -2,7 +2,7 @@ import shield from "../../../assets/svg/shield-check.svg";
 import truck from "../../../assets/svg/truck.svg";
 import creditCard from "../../../assets/svg/credit-card.svg";
 
-import style from "./Top.module.scss";
+import style from "./styles.module.scss";
 
 interface ITopo {
   imagem: string;

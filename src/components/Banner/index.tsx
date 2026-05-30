@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button";
-import style from "./Banner.module.scss";
+import style from "./styles.module.scss";
 
 const Banner: React.FC = () => {
   return (

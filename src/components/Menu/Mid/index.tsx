@@ -10,7 +10,7 @@ import Menu from "../../../assets/svg/menu.svg?react";
 import Close from "../../../assets/svg/close.svg?react";
 import logo from "../../../assets/img/webp/logo.webp";
 
-import style from "./Mid.module.scss";
+import style from "./styles.module.scss";
 interface IMid {
   menuOpen: boolean;
   setMenu: React.Dispatch<React.SetStateAction<boolean>>;

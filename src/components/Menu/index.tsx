@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import style from "./Menu.module.scss";
+import style from "./styles.module.scss";
 
 import Top from "./Top";
 import Mid from "./Mid";

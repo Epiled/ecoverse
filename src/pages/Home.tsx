@@ -11,18 +11,18 @@ import Modal from "../components/Modal";
 
 import { IProduct } from "../interfaces/IProduct";
 
-import { useDadosProdutos } from "../service/useProdutos";
+import { useProducts } from "../service/useProducts";
 
 const Home: React.FC = () => {
   const [products, setProducts] = useState<IProduct[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<IProduct>();
   const [modal, setModal] = useState(false);
 
-  const { dados } = useDadosProdutos();
+  const { data } = useProducts();
 
   useEffect(() => {
-    dados && setProducts(dados);
-  }, [dados]);
+    data && setProducts(data);
+  }, [data]);
 
   function selectProduct(product: IProduct) {
     setSelectedProduct(product);

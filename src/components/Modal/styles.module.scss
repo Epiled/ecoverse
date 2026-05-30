@@ -1,5 +1,5 @@
 .modal {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
@@ -33,7 +33,7 @@
     }
   }
 
-  &__imagem {
+  &__image {
     max-width: 24.7rem;
   }
 
@@ -41,12 +41,12 @@
     flex: 1;
     max-width: 32.8rem;
 
-    &--imagem {
+    &--image {
       text-align: center;
     }
   }
 
-  &__titulo {
+  &__title {
     color: var(--color-complement);
     font-family: Lato;
     font-size: 2rem;
@@ -54,13 +54,13 @@
     margin-bottom: 1.5rem;
   }
 
-  &__preco {
+  &__price {
     font-family: Lato;
     font-size: 2rem;
     font-weight: 900;
   }
 
-  &__txt {
+  &__text {
     color: var(--color-gray-darker-5);
     font-size: 1rem;
     margin: 1rem 0 1rem 0;
@@ -74,7 +74,7 @@
     margin-bottom: 1.5rem;
   }
 
-  &__btn {
+  &__button {
     background: var(--color-main);
     border: 0;
     box-sizing: border-box;
@@ -88,7 +88,7 @@
     text-decoration: none;
     text-transform: uppercase;
     width: 24.5rem;
-    border-radius: .4rem;
+    border-radius: 0.4rem;
     cursor: pointer;
 
     &:hover {
@@ -107,13 +107,13 @@
     cursor: pointer;
 
     &:hover {
-      color: var(--color-main)
+      color: var(--color-main);
     }
   }
 
-  &__ipts {
-    border-radius: .4rem;
-    border: .1rem solid var(--color-complement);
+  &__inputs {
+    border-radius: 0.4rem;
+    border: 0.1rem solid var(--color-complement);
     max-width: 11rem;
     height: 3.6rem;
     display: flex;
@@ -121,7 +121,7 @@
     color: var(--color-complement);
   }
 
-  &__arit {
+  &__arithmetic {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,7 +133,7 @@
     cursor: pointer;
   }
 
-  &__qtd {
+  &__quantity {
     width: 4rem;
     border: 0;
     text-align: center;
@@ -145,7 +145,6 @@
 
     &::-webkit-outer-spin-button {
       appearance: none;
-
     }
 
     &::-webkit-inner-spin-button {

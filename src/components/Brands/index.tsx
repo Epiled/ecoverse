@@ -1,106 +1,109 @@
-import Title from "../Title";
-import style from "./styles.module.scss";
-import Brand from "./Brand";
 import React, { useRef, useState } from "react";
+
+import Title from "../Title";
+import Brand from "./Brand";
+
+import style from "./styles.module.scss";
 
 const Brands: React.FC = () => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const produtosRef = useRef<Array<React.RefObject<HTMLAnchorElement>>>([]);
+  const productsRef = useRef<Array<React.RefObject<HTMLAnchorElement>>>([]);
 
-  const [animando, setAnimando] = useState(false);
-  const containerTamanho = ref.current?.getBoundingClientRect().width || 0;
+  const [animate, setAnimate] = useState(false);
+  const containerWidth = ref.current?.getBoundingClientRect().width || 0;
   const containerX = ref.current?.getBoundingClientRect().x || 0;
-  const containerXEnd = containerX + containerTamanho;
-  const containerEstilos = ref?.current
+  const containerXEnd = containerX + containerWidth;
+  const containerStyles = ref?.current
     ? window.getComputedStyle(ref.current)
     : 0;
-  const containerGap = containerEstilos ? parseFloat(containerEstilos.gap) : 0;
+  const containerGap = containerStyles ? parseFloat(containerStyles.gap) : 0;
 
-  // Carroussel função e regras
-  function moverItens(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
-    if (animando) return; // Evita cliques durante a animação
-    setAnimando(true);
-    const sentido = e.currentTarget.dataset.sentido;
-    let estiloAtual;
-    let valorAtual = 0;
-    let larguraProduto = 0;
+  // Carousel function and rules
+  function moveItems(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {
+    if (animate) return; // Prevent clicks duration animation
+    setAnimate(true);
+    const direction = e.currentTarget.dataset.direction;
+    let currentStyles;
+    let currentValue = 0;
+    let productWidth = 0;
 
-    const produtoRefPrimeiro = produtosRef.current[0].current;
-    const produtoRefPrimeiroPosition =
-      produtoRefPrimeiro?.getBoundingClientRect().x || 0;
+    const firstProductRef = productsRef.current[0].current;
+    const firstProductRefPosition =
+      firstProductRef?.getBoundingClientRect().x || 0;
 
-    const produtoRefUltimo = produtosRef.current.at(-1)?.current;
-    const produtoRefUltimoPosition =
-      produtoRefUltimo?.getBoundingClientRect().x || 0;
+    const lastProductRef = productsRef.current.at(-1)?.current;
+    const lastProductPositionRef =
+      lastProductRef?.getBoundingClientRect().x || 0;
 
-    if (produtoRefPrimeiro) {
-      estiloAtual = getComputedStyle(produtoRefPrimeiro);
-      ({ valorAtual, larguraProduto } = handlePosition(
-        estiloAtual,
-        produtoRefPrimeiro,
+    if (firstProductRef) {
+      currentStyles = getComputedStyle(firstProductRef);
+      ({ currentValue, productWidth } = handlePosition(
+        currentStyles,
+        firstProductRef,
       ));
     }
 
-    produtosRef.current.forEach((produtoRef) => {
-      const produto = produtoRef.current;
-      if (produto) {
-        estiloAtual = getComputedStyle(produto);
+    productsRef.current.forEach((productRef) => {
+      const product = productRef.current;
+      if (product) {
+        currentStyles = getComputedStyle(product);
 
-        let novaPosicao = 0;
-        const deslocamentoBase = larguraProduto + containerGap;
+        let newPosition = 0;
+        const displacementBase = productWidth + containerGap;
 
-        if (sentido === "esq") {
-          const foraDoContainer = produtoRefPrimeiroPosition - containerX;
+        if (direction === "left") {
+          const outsideContainer = firstProductRefPosition - containerX;
 
-          if (foraDoContainer >= 0) return;
-          novaPosicao = valorAtual + deslocamentoBase;
-          moverElementos(produto, novaPosicao, deslocamentoBase);
+          if (outsideContainer >= 0) return;
+
+          newPosition = currentValue + displacementBase;
+          moveElements(product, newPosition, displacementBase);
         } else {
-          if (produtoRefUltimoPosition <= containerXEnd - larguraProduto)
-            return;
-          novaPosicao = valorAtual - deslocamentoBase;
-          moverElementos(produto, novaPosicao, deslocamentoBase);
+          if (lastProductPositionRef <= containerXEnd - productWidth) return;
+          
+          newPosition = currentValue - displacementBase;
+          moveElements(product, newPosition, displacementBase);
         }
       }
     });
 
-    // Intervalo para pressionar o botão novamente
+    // Interval to press button again
     setTimeout(() => {
-      setAnimando(false);
-    }, 500); // Ajuste o tempo conforme necessário para a duração da animação
+      setAnimate(false);
+    }, 500); // Adjust time according to necessary to change animation duration
   }
 
-  function moverElementos(
-    produto: HTMLAnchorElement,
-    novaPosicao: number,
-    deslocamentoBase: number,
+  function moveElements(
+    product: HTMLAnchorElement,
+    newPosition: number,
+    displacementBase: number,
   ) {
-    produto.style.transform = `translateX(${novaPosicao}px)`;
-    const posicaoAlterada =
-      produto.getBoundingClientRect().x + deslocamentoBase;
-    checkInArea(produto, posicaoAlterada);
+    product.style.transform = `translateX(${newPosition}px)`;
+    const positionChanged =
+      product.getBoundingClientRect().x + displacementBase;
+    checkInArea(product, positionChanged);
   }
 
-  function checkInArea(produto: HTMLAnchorElement, posicaoAtual: number) {
-    if (posicaoAtual >= containerX && posicaoAtual < containerXEnd) {
-      produto.dataset.visible = "true";
+  function checkInArea(product: HTMLAnchorElement, currentPosition: number) {
+    if (currentPosition >= containerX && currentPosition < containerXEnd) {
+      product.dataset.visible = "true";
     } else {
-      produto.dataset.visible = "false";
+      product.dataset.visible = "false";
     }
   }
 
-  // Função Auxiliar do carroussel para coletar alguns valores
+  // Handler function to carousel get necessary values
   function handlePosition(
-    estilos: CSSStyleDeclaration,
-    produto: HTMLAnchorElement,
+    styles: CSSStyleDeclaration,
+    product: HTMLAnchorElement,
   ) {
-    const translateXAtual = estilos?.transform.replace(/[^0-9,-]/g, "");
-    const valorAtual = translateXAtual
-      ? parseFloat(translateXAtual.split(",")[4].trim())
+    const currentTranslateX = styles?.transform.replace(/[^0-9,-]/g, "");
+    const currentValue = currentTranslateX
+      ? parseFloat(currentTranslateX.split(",")[4].trim())
       : 0;
-    const larguraProduto = produto.getBoundingClientRect().width;
+    const productWidth = product.getBoundingClientRect().width;
 
-    return { valorAtual, larguraProduto };
+    return { currentValue, productWidth };
   }
 
   return (
@@ -110,19 +113,19 @@ const Brands: React.FC = () => {
       <div className={style.brands__carrousel} ref={ref}>
         {Array.from({ length: 8 }, (_, index) => {
           const ref = React.createRef<HTMLAnchorElement>();
-          produtosRef.current[index] = ref;
+          productsRef.current[index] = ref;
 
           return <Brand key={index} ref={ref} />;
         })}
 
         <button
-          className={style.brands__avancar}
+          className={style.brands__next}
           aria-label="Botão de avançar marcas"
           onClick={(e) => {
-            moverItens(e);
+            moveItems(e);
           }}
-          data-sentido="dir"
-        ></button>
+          data-direction="right"
+        />
       </div>
     </section>
   );

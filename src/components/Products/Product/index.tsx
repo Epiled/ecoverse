@@ -1,19 +1,21 @@
-import style from "./styles.module.scss";
-import { IProduto } from "../../../interfaces/IProduto";
 import { ForwardedRef, forwardRef } from "react";
 
-interface Props extends IProduto {
-  selecionaProduto: (produtoSelecionado: IProduto) => void;
+import { IProduct } from "../../../interfaces/IProduct";
+
+import style from "./styles.module.scss";
+
+interface Props extends IProduct {
+  selectProduct: (product: IProduct) => void;
   onModal: (onModal: boolean) => void;
   index: number;
 }
 
 const formatValue = (value: number) => {
-  const valueFormated = value
+  const formattedValue = value
     .toFixed(2)
     .replace(".", ",")
     .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  return valueFormated;
+  return formattedValue;
 };
 
 const Product = forwardRef(
@@ -24,8 +26,8 @@ const Product = forwardRef(
       price,
       productName,
       id,
-      produtoSelecionado,
-      selecionaProduto,
+      selected,
+      selectProduct,
       onModal,
       index,
     }: Props,
@@ -33,13 +35,7 @@ const Product = forwardRef(
   ) => {
     return (
       <li className={style.product} ref={ref} key={index} data-visible="true">
-        <img
-          className={style.product__imagem}
-          src={photo}
-          width={247}
-          height={228}
-          alt="#"
-        />
+        <img src={photo} width={247} height={228} alt="#" />
         <h3 className={style.product__title}>{descriptionShort}</h3>
 
         <span className={style.product__oldValue}>
@@ -56,13 +52,13 @@ const Product = forwardRef(
           className={style.product__button}
           type="button"
           onClick={() => {
-            selecionaProduto({
+            selectProduct({
               descriptionShort,
               photo,
               price,
               productName,
               id,
-              produtoSelecionado,
+              selected,
             });
             onModal(true);
           }}

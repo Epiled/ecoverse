@@ -1,5 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 const http = import.meta.env.VITE_API_URL;
 
@@ -10,25 +10,25 @@ interface ApiResponse<T> {
 }
 
 const useFetch = <T>({ url }: { url: string; }) => {
-  const [dados, setDados] = useState<T | null>(null);
-  const [erro, setErro] = useState<string | null>(null);
+  const [data, setData] = useState<T | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       axios.get<ApiResponse<T>>(`${http}${url}`)
-      .then(resposta => {
-        const { data: json } = resposta.data;
-        setDados(json);
+      .then(res => {
+        const { data: json } = res.data;
+        setData(json);
       })
-      .catch(erro => {
-        setErro(erro);
+      .catch(error => {
+        setError(error);
       })
     }
     fetchData();
   }, [url]);
 
 
-  return { dados, erro }
+  return { data, error }
 }
 
 export default useFetch;

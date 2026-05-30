@@ -4,7 +4,7 @@
   align-items: center;
   flex-wrap: wrap;
   min-height: 7.2rem;
-  border-bottom: .1rem solid var(--color-white-4);
+  border-bottom: 0.1rem solid var(--color-white-4);
   position: relative;
   gap: 2rem;
 
@@ -46,13 +46,13 @@
     }
   }
 
-  &__busca {
+  &__search {
     position: relative;
     display: flex;
     width: 100%;
   }
 
-  &__btnBusca {
+  &__button {
     cursor: pointer;
     width: 4.8rem;
     height: 4.8rem;
@@ -63,17 +63,17 @@
     &:hover {
       background-color: var(--color-main);
 
-      .mid__btnIcon {
+      .mid__iconButton {
         stroke: var(--lighter);
       }
     }
   }
 
-  &__btnIcon {
+  &__iconButton {
     stroke: var(--color-gray-lighter-4);
   }
 
-  &__hamburguer {
+  &__icon {
     cursor: pointer;
     display: none;
     fill: var(--color-main);

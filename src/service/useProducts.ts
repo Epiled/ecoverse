@@ -1,4 +1,5 @@
-import { IProduto } from "../interfaces/IProduto";
+import { IProduct } from "../interfaces/IProduct";
+
 import useFetch from "./useFetch";
 
 // const apiURLs = {
@@ -6,9 +7,9 @@ import useFetch from "./useFetch";
 //   production: "https://api-ecoverse.vercel.app/api/produtos" // API de produção
 // };
 
-const useDadosProdutos = () => {
-  return useFetch<IProduto[]>({ url: 'products' }); // Use a URL do endpoint
+const useProducts = () => {
+  return useFetch<IProduct[]>({ url: 'products' }); // Use a URL do endpoint
 
 };
 
-export { useDadosProdutos };
+export { useProducts };

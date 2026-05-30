@@ -1,4 +1,5 @@
 /// <reference types="vite-plugin-svgr/client" />
+import React from "react";
 import { Link } from "react-router-dom";
 
 import Group from "../../../assets/svg/group.svg?react";
@@ -10,14 +11,15 @@ import Menu from "../../../assets/svg/menu.svg?react";
 import Close from "../../../assets/svg/close.svg?react";
 import logo from "../../../assets/img/webp/logo.webp";
 
-import style from "./Mid.module.scss";
+import style from "./styles.module.scss";
+
 interface IMid {
   menuOpen: boolean;
   setMenu: React.Dispatch<React.SetStateAction<boolean>>;
-  calculaMenu: () => void;
+  handlerMobileMenu: () => void;
 }
 
-const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
+const Mid: React.FC<IMid> = ({ setMenu, menuOpen, handlerMobileMenu }) => {
   return (
     <div className={style.mid}>
       <img
@@ -29,7 +31,7 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
       />
 
       <div className={style.mid__container}>
-        <div className={style.mid__busca}>
+        <div className={style.mid__search}>
           <input
             className={style.mid__ipt}
             placeholder="O que você está buscando?"
@@ -37,31 +39,31 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
             name=""
             id=""
           />
-          <button className={style.mid__btnBusca} aria-label="Buscar">
-            <MagnifyingGlass className={style.mid__btnIcon} />
+          <button className={style.mid__button} aria-label="Buscar">
+            <MagnifyingGlass className={style.mid__iconButton} />
           </button>
         </div>
 
         {menuOpen ? (
           <Close
-            className={style.mid__hamburguer}
+            className={style.mid__icon}
             width="50px"
             height="50px"
-            title="Menu Hamburguer Close"
+            title="Menu Fechado"
             onClick={() => {
               setMenu(!menuOpen);
-              calculaMenu();
+              handlerMobileMenu();
             }}
           />
         ) : (
           <Menu
-            className={style.mid__hamburguer}
+            className={style.mid__icon}
             width="50px"
             height="50px"
-            title="Menu Hamburguer Open"
+            title="Menu Aberto"
             onClick={() => {
               setMenu(!menuOpen);
-              calculaMenu();
+              handlerMobileMenu();
             }}
           />
         )}
@@ -70,7 +72,7 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
       <nav className={style.mid__icons}>
         <Link
           className={style.mid__link}
-          to={""}
+          to={"/"}
           aria-label="Acessar acompanhamento de pedidos"
         >
           <Group
@@ -79,17 +81,17 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
         </Link>
         <Link
           className={style.mid__link}
-          to={""}
+          to={"/"}
           aria-label="Acessar favoritos"
         >
           <Heart className={style.mid__iconLink} />
         </Link>
-        <Link className={style.mid__link} to={""} aria-label="Acessar perfil">
+        <Link className={style.mid__link} to={"/"} aria-label="Acessar perfil">
           <User className={style.mid__iconLink} />
         </Link>
         <Link
           className={style.mid__link}
-          to={""}
+          to={"/"}
           aria-label="Acessar carrinho de compras"
         >
           <ShoppingCart className={style.mid__iconLink} />

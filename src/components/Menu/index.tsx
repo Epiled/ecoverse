@@ -1,23 +1,24 @@
 import React, { useEffect, useRef, useState } from "react";
-import style from "./Menu.module.scss";
 
 import Top from "./Top";
 import Mid from "./Mid";
 import Navigation from "./Navigation";
 
+import style from "./styles.module.scss";
+
 const Menu: React.FC = () => {
   const [menu, setMenu] = useState<boolean>(false);
-  const [tamanhoMenu, setTamanhoMenu] = useState(0);
+  const [menuHeight, setMenuHeight] = useState(0);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const calculaMenu = () => {
+  const handlerMobileMenu = () => {
     const valorMenu = Number(menuRef.current?.clientWidth);
-    setTamanhoMenu(menu ? 0 : valorMenu * 1);
+    setMenuHeight(menu ? 0 : valorMenu * 1);
   };
 
   useEffect(() => {
     if (window.innerWidth < 768) {
-      calculaMenu();
+      handlerMobileMenu();
     }
   });
 
@@ -25,8 +26,12 @@ const Menu: React.FC = () => {
     <header>
       <nav className={style.menu}>
         <Top />
-        <Mid setMenu={setMenu} menuOpen={menu} calculaMenu={calculaMenu} />
-        <Navigation tamanhoMenu={tamanhoMenu} menuRef={menuRef} />
+        <Mid
+          setMenu={setMenu}
+          menuOpen={menu}
+          handlerMobileMenu={handlerMobileMenu}
+        />
+        <Navigation menuHeight={menuHeight} menuRef={menuRef} />
       </nav>
     </header>
   );

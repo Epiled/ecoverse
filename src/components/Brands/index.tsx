@@ -9,7 +9,9 @@ import style from "./styles.module.scss";
 
 const Brands: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const brandsRef = useRef<Array<React.RefObject<HTMLAnchorElement>>>([]);
+  const brandsRef = useRef<Array<React.RefObject<HTMLAnchorElement | null>>>(
+    [],
+  );
 
   if (brandsRef.current.length === 0) {
     brandsRef.current = Array.from({ length: 8 }, () =>

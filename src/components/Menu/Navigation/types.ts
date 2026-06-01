@@ -1,4 +1,4 @@
 export interface NavigationProps {
   isOpen: boolean;
-  menuRef: React.RefObject<HTMLDivElement>;
+  menuRef: React.RefObject<HTMLDivElement | null>;
 }

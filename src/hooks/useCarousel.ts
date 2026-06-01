@@ -1,8 +1,8 @@
 import { useCallback, useState } from "react";
 
-interface CarouselProps<T extends HTMLElement, J extends HTMLElement> {
+interface CarouselProps<T extends HTMLElement, U extends HTMLElement> {
   containerRef: React.RefObject<T | null>;
-  listRef: React.RefObject<Array<React.RefObject<J>>>;
+  listRef: React.RefObject<Array<React.RefObject<U | null>>>;
   partial?: boolean;
 }
 
@@ -16,11 +16,11 @@ export interface CarouselItemPosition {
 
 type Direction = "left" | "right";
 
-export function useCarousel<T extends HTMLElement, J extends HTMLElement>({
+export function useCarousel<T extends HTMLElement, U extends HTMLElement>({
   containerRef,
   listRef,
   partial = true,
-}: CarouselProps<T, J>) {
+}: CarouselProps<T, U>) {
   const [animate, setAnimate] = useState(false);
 
   function moveItems(e: React.MouseEvent<HTMLButtonElement, MouseEvent>) {

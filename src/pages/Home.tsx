@@ -24,13 +24,13 @@ const Home: React.FC = () => {
     data && setProducts(data);
   }, [data]);
 
-  function selectProduct(product: IProduct) {
-    setSelectedProduct(product);
+  function selectProduct(selected: IProduct) {
+    setSelectedProduct(selected);
+
     setProducts((prev) =>
-      prev.map((product, index) => ({
-        ...product,
-        id: String(index),
-        selected: product.id === product.id ? true : false,
+      prev.map((item) => ({
+        ...item,
+        selected: item.id === selected.id,
       })),
     );
   }

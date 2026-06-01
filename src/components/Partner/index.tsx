@@ -1,16 +1,13 @@
 import React from "react";
 import classNames from "classnames";
 
+import { PartnerProps } from "./types";
+
 import Button from "../Button";
 
 import style from "./styles.module.scss";
 
-interface Props {
-  title: string;
-  className?: string;
-}
-
-const Partner: React.FC<Props> = ({ title, className }) => {
+const Partner: React.FC<PartnerProps> = ({ title, className }) => {
   return (
     <div
       className={classNames(style.partner, {

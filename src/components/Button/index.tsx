@@ -1,15 +1,11 @@
 import React from "react";
 import classNames from "classnames";
 
+import { ButtonProps } from "./types";
+
 import style from "./styles.module.scss";
 
-interface Props {
-  children?: React.ReactNode;
-  link: string;
-  className?: string;
-}
-
-const Button: React.FC<Props> = ({ children, link, className }) => {
+const Button: React.FC<ButtonProps> = ({ children, link, className }) => {
   return (
     <a
       className={classNames(style.button, {

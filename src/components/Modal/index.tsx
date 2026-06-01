@@ -1,35 +1,17 @@
-import { useState } from "react";
+import React from "react";
 
-import { IProduct } from "@/interfaces/IProduct";
+import { ModalProps } from "./types";
+
+import { useQuantity } from "./useQuantity";
+
+import { formatPrice } from "@/utils/formatPrice";
 
 import photo from "@/assets/img/mobile.png";
 
 import style from "./styles.module.scss";
 
-interface ModalProps {
-  product?: IProduct;
-  offModal: (onModal: boolean) => void;
-}
-
 const Modal: React.FC<ModalProps> = ({ product, offModal }) => {
-  const [quantity, setQuantity] = useState(1);
-
-  const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
-  };
-
-  const handleIncrement = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const handleInputChange = (event: { target: { value: string } }) => {
-    const value = parseInt(event.target.value, 10);
-    if (!isNaN(value) && value >= 1) {
-      setQuantity(value);
-    }
-  };
+  const { quantity, increment, decrement, update } = useQuantity();
 
   return (
     <aside className={style.modal}>
@@ -42,35 +24,25 @@ const Modal: React.FC<ModalProps> = ({ product, offModal }) => {
         <div className={style.modal__container}>
           <h3 className={style.modal__title}>{product?.productName}</h3>
           <span className={style.modal__price}>
-            R${" "}
-            {product?.price
-              .toFixed(2)
-              .replace(".", ",")
-              .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}
+            R$ {product?.price && formatPrice(product.price)}
           </span>
           <p className={style.modal__text}>{product?.descriptionShort}</p>
           <span className={style.modal__extra}>
             Veja mais detalhes do produto
           </span>
           <div className={style.modal__inputs}>
-            <button
-              className={style.modal__arithmetic}
-              onClick={handleDecrement}
-            >
+            <button className={style.modal__arithmetic} onClick={decrement}>
               -
             </button>
             <input
               className={style.modal__quantity}
               type="number"
-              id="modalQuantidade"
-              name="modalQuantidade"
+              id="modal-quantity"
+              name="modal-quantity"
               value={quantity}
-              onChange={handleInputChange}
+              onChange={(e) => update(e.target.value)}
             />
-            <button
-              className={style.modal__arithmetic}
-              onClick={handleIncrement}
-            >
+            <button className={style.modal__arithmetic} onClick={increment}>
               +
             </button>
           </div>

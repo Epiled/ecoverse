@@ -2,24 +2,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import Group from "@/assets/svg/icons-ui/group.svg?react";
-import Heart from "@/assets/svg/icons-ui/heart.svg?react";
-import User from "@/assets/svg/icons-ui/user.svg?react";
-import ShoppingCart from "@/assets/svg/icons-ui/shopping-cart.svg?react";
-import MagnifyingGlass from "@/assets/svg/icons-ui/magnifying-glass.svg?react";
-import Menu from "@/assets/svg/icons-ui/menu.svg?react";
-import Close from "@/assets/svg/icons-ui/close.svg?react";
+import { MidProps } from "./types";
+
+import Group from "@/assets/svg/group.svg?react";
+import Heart from "@/assets/svg/heart.svg?react";
+import User from "@/assets/svg/user.svg?react";
+import ShoppingCart from "@/assets/svg/shopping-cart.svg?react";
+import MagnifyingGlass from "@/assets/svg/magnifying-glass.svg?react";
+import Menu from "@/assets/svg/menu.svg?react";
+import Close from "@/assets/svg/close.svg?react";
 import logo from "@/assets/img/webp/logo.webp";
 
 import style from "./styles.module.scss";
 
-interface IMid {
-  menuOpen: boolean;
-  setMenu: React.Dispatch<React.SetStateAction<boolean>>;
-  handlerMobileMenu: () => void;
-}
-
-const Mid: React.FC<IMid> = ({ setMenu, menuOpen, handlerMobileMenu }) => {
+const Mid: React.FC<MidProps> = ({ isOpen, toggleMenu }) => {
   return (
     <div className={style.mid}>
       <img
@@ -44,15 +40,14 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, handlerMobileMenu }) => {
           </button>
         </div>
 
-        {menuOpen ? (
+        {isOpen ? (
           <Close
             className={style.mid__icon}
             width="50px"
             height="50px"
             title="Menu Fechado"
             onClick={() => {
-              setMenu(!menuOpen);
-              handlerMobileMenu();
+              toggleMenu();
             }}
           />
         ) : (
@@ -62,8 +57,7 @@ const Mid: React.FC<IMid> = ({ setMenu, menuOpen, handlerMobileMenu }) => {
             height="50px"
             title="Menu Aberto"
             onClick={() => {
-              setMenu(!menuOpen);
-              handlerMobileMenu();
+              toggleMenu();
             }}
           />
         )}

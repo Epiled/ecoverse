@@ -2,15 +2,9 @@ import { ForwardedRef, forwardRef } from "react";
 
 import { ProductProps } from "./types";
 
-import style from "./styles.module.scss";
+import { formatPrice } from "@/utils/formatPrice";
 
-const formatValue = (value: number) => {
-  const formattedValue = value
-    .toFixed(2)
-    .replace(".", ",")
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  return formattedValue;
-};
+import style from "./styles.module.scss";
 
 const Product = forwardRef(
   (
@@ -23,21 +17,20 @@ const Product = forwardRef(
       selected,
       selectProduct,
       onModal,
-      index,
     }: ProductProps,
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     return (
-      <li className={style.product} ref={ref} key={index} data-visible="true">
+      <li className={style.product} ref={ref} data-visible="true">
         <img src={photo} width={247} height={228} alt="#" />
         <h3 className={style.product__title}>{descriptionShort}</h3>
 
         <span className={style.product__oldValue}>
-          R$ {formatValue(price + price * 0.0647)}
+          R$ {formatPrice(price + price * 0.0647)}
         </span>
-        <span className={style.product__value}>R$ {formatValue(price)}</span>
+        <span className={style.product__value}>R$ {formatPrice(price)}</span>
         <span className={style.product__installment}>
-          ou 2x de R$ {formatValue(price / 2)}
+          ou 2x de R$ {formatPrice(price / 2)}
           sem juros
         </span>
         <span className={style.product__shipping}>Frete grátis</span>

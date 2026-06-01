@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import classNames from "classnames";
 
 import { NavigationProps } from "./types";
 
@@ -7,12 +8,14 @@ import Crown from "@/assets/svg/crown.svg?react";
 
 import style from "./styles.module.scss";
 
-const Navigation: React.FC<NavigationProps> = ({ menuHeight, menuRef }) => {
+const Navigation: React.FC<NavigationProps> = ({ isOpen, menuRef }) => {
   return (
     <div
-      className={style.navigation}
-      style={{ transform: `translateX(${menuHeight}px)` }}
       ref={menuRef}
+      className={classNames(
+        style.navigation,
+        isOpen && style["navigation--active"],
+      )}
     >
       <Link className={style.navigation__link} to="#">
         Todas Categorias

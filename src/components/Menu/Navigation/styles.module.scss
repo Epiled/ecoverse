@@ -1,23 +1,30 @@
 .navigation {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 4rem;
+  gap: 1rem;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  height: auto;
+  background: var(--lighter);
+  padding: 1.5rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  z-index: 2;
   box-shadow: 0 0.8rem 1.6rem 0 var(--shadow-3);
+  transform: translateX(100%);
+  transition: 0.5s transform;
 
-  @media screen and (max-width: 768px) {
-    position: absolute;
-    top: 100%;
-    right: 0;
-    flex-direction: column;
-    height: auto;
-    background: var(--lighter);
-    padding: 1.5rem;
-    border-radius: 0 0 0.5rem 0.5rem;
-    z-index: 2;
+  &--active {
+    transform: translateX(0%);
+  }
+
+  @media screen and (min-width: 768px) {
+    position: static;
+    height: 4rem;
+    flex-direction: row;
     transform: translateX(0);
-    transition: 0.5s transform;
-    gap: 1rem;
   }
 
   &__link {

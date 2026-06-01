@@ -15,7 +15,7 @@ import logo from "@/assets/img/webp/logo.webp";
 
 import style from "./styles.module.scss";
 
-const Mid: React.FC<MidProps> = ({ menuOpen, setMenu, handlerMobileMenu }) => {
+const Mid: React.FC<MidProps> = ({ isOpen, toggleMenu }) => {
   return (
     <div className={style.mid}>
       <img
@@ -40,15 +40,14 @@ const Mid: React.FC<MidProps> = ({ menuOpen, setMenu, handlerMobileMenu }) => {
           </button>
         </div>
 
-        {menuOpen ? (
+        {isOpen ? (
           <Close
             className={style.mid__icon}
             width="50px"
             height="50px"
             title="Menu Fechado"
             onClick={() => {
-              setMenu(!menuOpen);
-              handlerMobileMenu();
+              toggleMenu();
             }}
           />
         ) : (
@@ -58,8 +57,7 @@ const Mid: React.FC<MidProps> = ({ menuOpen, setMenu, handlerMobileMenu }) => {
             height="50px"
             title="Menu Aberto"
             onClick={() => {
-              setMenu(!menuOpen);
-              handlerMobileMenu();
+              toggleMenu();
             }}
           />
         )}

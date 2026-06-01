@@ -1,37 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 
 import Top from "./Top";
 import Mid from "./Mid";
 import Navigation from "./Navigation";
 
+import { useMobileMenu } from "./useMobileMenu";
+
 import style from "./styles.module.scss";
 
 const Menu: React.FC = () => {
-  const [menu, setMenu] = useState<boolean>(false);
-  const [menuHeight, setMenuHeight] = useState(0);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const { isOpen, menuRef, toggleMenu } = useMobileMenu();
 
-  const handlerMobileMenu = () => {
-    const valorMenu = Number(menuRef.current?.clientWidth);
-    setMenuHeight(menu ? 0 : valorMenu * 1);
-  };
-
-  useEffect(() => {
-    if (window.innerWidth < 768) {
-      handlerMobileMenu();
-    }
-  });
+  console.log(isOpen);
 
   return (
     <header>
       <nav className={style.menu}>
         <Top />
-        <Mid
-          setMenu={setMenu}
-          menuOpen={menu}
-          handlerMobileMenu={handlerMobileMenu}
-        />
-        <Navigation menuHeight={menuHeight} menuRef={menuRef} />
+        <Mid isOpen={isOpen} toggleMenu={toggleMenu} />
+        <Navigation menuRef={menuRef} isOpen={isOpen} />
       </nav>
     </header>
   );

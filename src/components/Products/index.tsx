@@ -41,7 +41,7 @@ const Products: React.FC<ProductsProps> = ({
     setHasProduct(() => {
       return products.length > 0 ? true : false;
     });
-  }, [initCarousel, products]);
+  }, [products]);
 
   return (
     <section className={style.products}>
@@ -51,6 +51,7 @@ const Products: React.FC<ProductsProps> = ({
         {TECHNOLOGIES_LIST.map((item, index) => {
           return (
             <Link
+              key={`${item}-${index}`}
               to={"/"}
               className={classNames(style.products__category, {
                 [style["products__category--active"]]: index === 0,

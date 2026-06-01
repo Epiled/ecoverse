@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import { CATEGORY_LIST } from "./constants";
+import { CATEGORY_LIST } from "./constants.ts";
 
 import style from "./styles.module.scss";
 

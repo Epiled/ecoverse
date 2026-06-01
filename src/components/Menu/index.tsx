@@ -11,8 +11,6 @@ import style from "./styles.module.scss";
 const Menu: React.FC = () => {
   const { isOpen, menuRef, toggleMenu } = useMobileMenu();
 
-  console.log(isOpen);
-
   return (
     <header>
       <nav className={style.menu}>

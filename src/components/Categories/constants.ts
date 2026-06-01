@@ -1,12 +1,12 @@
 import { CategoryProps } from "./types";
 
-import devices from "@/assets/svg/devices.svg";
-import supermarket from "@/assets/svg/supermarket.svg";
-import whiskey from "@/assets/svg/whiskey.svg";
-import tools from "@/assets/svg/tools.svg";
-import healthCare from "@/assets/svg/health-care.svg";
-import runningTreadmill from "@/assets/svg/running-treadmill.svg";
-import fashion from "@/assets/svg/fashion.svg";
+import devices from "@/assets/svg/icons-ui/devices.svg";
+import supermarket from "@/assets/svg/icons-ui/supermarket.svg";
+import whiskey from "@/assets/svg/icons-ui/whiskey.svg";
+import tools from "@/assets/svg/icons-ui/tools.svg";
+import healthCare from "@/assets/svg/icons-ui/health-care.svg";
+import runningTreadmill from "@/assets/svg/icons-ui/running-treadmill.svg";
+import fashion from "@/assets/svg/icons-ui/fashion.svg";
 
 export const CATEGORY_LIST: CategoryProps[] = [
   {

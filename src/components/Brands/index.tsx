@@ -9,17 +9,17 @@ import style from "./styles.module.scss";
 
 const Brands: React.FC = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const productsRef = useRef<Array<React.RefObject<HTMLAnchorElement>>>([]);
+  const brandsRef = useRef<Array<React.RefObject<HTMLAnchorElement>>>([]);
 
-  if (productsRef.current.length === 0) {
-    productsRef.current = Array.from({ length: 8 }, () =>
+  if (brandsRef.current.length === 0) {
+    brandsRef.current = Array.from({ length: 8 }, () =>
       React.createRef<HTMLAnchorElement>(),
     );
   }
 
   const { moveItems, isItemVisible, initCarousel } = useCarousel({
     containerRef,
-    listRef: productsRef,
+    listRef: brandsRef,
     partial: false,
   });
 
@@ -36,10 +36,7 @@ const Brands: React.FC = () => {
     if (!positions.length) return;
 
     const firstVisible = isItemVisible(0, positions);
-    const lastVisible = isItemVisible(
-      productsRef.current.length - 1,
-      positions,
-    );
+    const lastVisible = isItemVisible(brandsRef.current.length - 1, positions);
 
     setShowBackButton(!firstVisible);
     setShowNextButton(!lastVisible);
@@ -50,7 +47,7 @@ const Brands: React.FC = () => {
       <Title alt>Navegue por marcas</Title>
 
       <div className={style.brands__carrousel} ref={containerRef}>
-        {productsRef.current.map((ref, index) => (
+        {brandsRef.current.map((ref, index) => (
           <Brand key={index} ref={ref} />
         ))}
 

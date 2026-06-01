@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ADVANTAGES_LIST } from "./constants";
+import { ADVANTAGES_LIST } from "./constants.ts";
 
 import style from "./styles.module.scss";
 

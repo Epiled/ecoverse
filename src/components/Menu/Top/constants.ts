@@ -1,8 +1,8 @@
 import { TopProps } from "./types";
 
-import shield from "@/assets/svg/shield-check.svg";
-import truck from "@/assets/svg/truck.svg";
-import creditCard from "@/assets/svg/credit-card.svg";
+import shield from "@/assets/svg/icons-ui/shield-check.svg";
+import truck from "@/assets/svg/icons-ui/truck.svg";
+import creditCard from "@/assets/svg/icons-ui/credit-card.svg";
 
 export const ADVANTAGES_LIST: TopProps[] = [
   {

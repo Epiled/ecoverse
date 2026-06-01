@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import { NavigationProps } from "./types";
 
-import Crown from "@/assets/svg/crown.svg?react";
+import Crown from "@/assets/svg/icons-ui/crown.svg?react";
 
 import style from "./styles.module.scss";
 

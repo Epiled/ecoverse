@@ -41,7 +41,7 @@ const Products: React.FC<ProductsProps> = ({
     setHasProduct(() => {
       return products.length > 0 ? true : false;
     });
-  }, [initCarousel, products]);
+  }, [products]);
 
   return (
     <section className={style.products}>

@@ -2,6 +2,8 @@ import { ForwardedRef, forwardRef } from "react";
 
 import { ProductProps } from "./types";
 
+import { useModalContext } from "@/contexts/ModalContext";
+
 import { formatPrice } from "@/utils/formatPrice";
 
 import style from "./styles.module.scss";
@@ -16,10 +18,11 @@ const Product = forwardRef(
       id,
       selected,
       selectProduct,
-      onModal,
     }: ProductProps,
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
+    const { onModal } = useModalContext();
+
     return (
       <li className={style.product} ref={ref} data-visible="true">
         <img src={photo} width={247} height={228} alt="#" />
@@ -39,7 +42,7 @@ const Product = forwardRef(
           className={style.product__button}
           type="button"
           onClick={() => {
-            selectProduct({
+            selectProduct?.({
               descriptionShort,
               photo,
               price,
@@ -47,7 +50,7 @@ const Product = forwardRef(
               id,
               selected,
             });
-            onModal(true);
+            onModal();
           }}
         >
           Comprar

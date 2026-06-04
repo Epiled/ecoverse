@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useRef } from "react";
 import classNames from "classnames";
 
 import { ProductsProps } from "./type";
@@ -9,19 +8,20 @@ import Title from "../Title";
 import Product from "./Product";
 import Feedback from "../Feedback";
 
+import { useFiltersContext } from "@/contexts/FiltersContext";
 import { useCarousel } from "@/hooks/useCarousel";
 
 import { TECHNOLOGIES_LIST } from "./constant";
 
 import style from "./styles.module.scss";
 
-const Products: React.FC<ProductsProps> = ({
-  products,
-  selectProduct,
-  onModal,
-}) => {
+const Products: React.FC<ProductsProps> = ({ products, selectProduct }) => {
+  const { setFilters } = useFiltersContext();
+
   const containerRef = useRef<HTMLUListElement | null>(null);
   const productsRef = useRef<Array<React.RefObject<HTMLLIElement>>>([]);
+
+  const hasProduct = products.length > 0;
 
   if (productsRef.current.length !== products.length) {
     productsRef.current = Array(products.length)
@@ -34,13 +34,8 @@ const Products: React.FC<ProductsProps> = ({
     listRef: productsRef,
   });
 
-  const [hasProduct, setHasProduct] = useState(false);
-
   useEffect(() => {
     initCarousel();
-    setHasProduct(() => {
-      return products.length > 0 ? true : false;
-    });
   }, [products]);
 
   return (
@@ -50,15 +45,22 @@ const Products: React.FC<ProductsProps> = ({
       <nav className={style.products__categories}>
         {TECHNOLOGIES_LIST.map((item, index) => {
           return (
-            <Link
+            <button
               key={`${item}-${index}`}
-              to={"/"}
               className={classNames(style.products__category, {
                 [style["products__category--active"]]: index === 0,
               })}
+              onClick={() =>
+                setFilters((prev) => {
+                  return {
+                    ...prev,
+                    subcategory: item.link,
+                  };
+                })
+              }
             >
               {item.text}
-            </Link>
+            </button>
           );
         })}
       </nav>
@@ -73,7 +75,6 @@ const Products: React.FC<ProductsProps> = ({
                     key={product.id}
                     ref={productsRef.current[index]}
                     selectProduct={selectProduct}
-                    onModal={onModal}
                     {...product}
                   />
                 );

@@ -2,27 +2,27 @@ import { ProductList } from "./type";
 
 export const TECHNOLOGIES_LIST: ProductList[] = [
   {
-    link: "/",
+    link: "phone",
     text: "Celular",
   },
   {
-    link: "/",
+    link: "accessories",
     text: "Acessórios",
   },
   {
-    link: "/",
+    link: "tablets",
     text: "Tablets",
   },
   {
-    link: "/",
+    link: "laptop",
     text: "Notebooks",
   },
   {
-    link: "/",
+    link: "tv",
     text: "TVs",
   },
   {
-    link: "/",
+    link: "all",
     text: "Ver todos",
   },
 ];

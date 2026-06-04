@@ -1,0 +1,10 @@
+export interface ApiResponse<T> {
+  success: boolean;
+  total?: number;
+  data: T;
+}
+
+export interface ApiError {
+  success: false;
+  message: string;
+}

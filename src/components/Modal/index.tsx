@@ -9,9 +9,12 @@ import { formatPrice } from "@/utils/formatPrice";
 import photo from "@/assets/img/mobile.png";
 
 import style from "./styles.module.scss";
+import { useModalContext } from "@/contexts/ModalContext";
 
-const Modal: React.FC<ModalProps> = ({ product, offModal }) => {
+const Modal: React.FC<ModalProps> = ({ product }) => {
   const { quantity, increment, decrement, update } = useQuantity();
+
+  const { offModal } = useModalContext();
 
   return (
     <aside className={style.modal}>
@@ -48,7 +51,12 @@ const Modal: React.FC<ModalProps> = ({ product, offModal }) => {
           </div>
           <button className={style.modal__button}>Comprar</button>
         </div>
-        <button className={style.modal__close} onClick={() => offModal(false)}>
+        <button
+          className={style.modal__close}
+          onClick={() => {
+            offModal();
+          }}
+        >
           X
         </button>
       </div>

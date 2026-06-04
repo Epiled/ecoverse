@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import Banner from "../components/Banner";
 import Menu from "../components/Menu";
@@ -11,36 +11,20 @@ import Modal from "../components/Modal";
 
 import { IProduct } from "../interfaces/IProduct";
 
-import { useProducts } from "../service/useProducts";
+import { useFiltersContext } from "@/contexts/FiltersContext";
+import { useModalContext } from "@/contexts/ModalContext";
+import { useProducts } from "../hooks/useProducts";
 
 const Home: React.FC = () => {
-  const [products, setProducts] = useState<IProduct[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<IProduct>();
-  const [modal, setModal] = useState(false);
 
-  const { data } = useProducts();
+  const { isOpen } = useModalContext();
+  const { filters } = useFiltersContext();
 
-  useEffect(() => {
-    data && setProducts(data);
-  }, [data]);
+  const { data } = useProducts(filters);
 
   function selectProduct(selected: IProduct) {
     setSelectedProduct(selected);
-
-    setProducts((prev) =>
-      prev.map((item) => ({
-        ...item,
-        selected: item.id === selected.id,
-      })),
-    );
-  }
-
-  function onModal() {
-    setModal(true);
-  }
-
-  function offModal() {
-    setModal(false);
   }
 
   return (
@@ -48,14 +32,10 @@ const Home: React.FC = () => {
       <Menu />
       <Banner />
       <Categories />
-      <Products
-        products={products}
-        selectProduct={selectProduct}
-        onModal={onModal}
-      />
+      <Products products={data} selectProduct={selectProduct} />
       <Related />
       <Brands />
-      {modal && <Modal product={selectedProduct} offModal={offModal} />}
+      {isOpen && <Modal product={selectedProduct} />}
       <Footer />
     </>
   );

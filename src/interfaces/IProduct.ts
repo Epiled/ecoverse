@@ -4,5 +4,4 @@ export interface IProduct {
   price: number;
   productName: string;
   id: string;
-  selected: boolean;
 }

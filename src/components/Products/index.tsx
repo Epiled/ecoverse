@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import classNames from "classnames";
 
-import { ProductsProps } from "./type";
-
 import Partner from "../Partner";
 import Title from "../Title";
 import Product from "./Product";
@@ -10,13 +8,18 @@ import Feedback from "../Feedback";
 
 import { useFiltersContext } from "@/contexts/FiltersContext";
 import { useCarousel } from "@/hooks/useCarousel";
+import { useProducts } from "@/hooks/useProducts";
 
 import { TECHNOLOGIES_LIST } from "./constant";
 
 import style from "./styles.module.scss";
 
-const Products: React.FC<ProductsProps> = ({ products, selectProduct }) => {
+const Products: React.FC = () => {
   const { setFilters } = useFiltersContext();
+
+  const { filters } = useFiltersContext();
+
+  const { data: products } = useProducts(filters);
 
   const containerRef = useRef<HTMLUListElement | null>(null);
   const productsRef = useRef<Array<React.RefObject<HTMLLIElement>>>([]);
@@ -74,7 +77,6 @@ const Products: React.FC<ProductsProps> = ({ products, selectProduct }) => {
                   <Product
                     key={product.id}
                     ref={productsRef.current[index]}
-                    selectProduct={selectProduct}
                     {...product}
                   />
                 );

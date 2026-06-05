@@ -1,6 +1,8 @@
 import { ForwardedRef, forwardRef } from "react";
 
-import { ProductProps } from "./types";
+import ProductQuickView from "@/components/ProductQuickView";
+
+import { IProduct } from "@/interfaces/IProduct";
 
 import { useModalContext } from "@/contexts/ModalContext";
 
@@ -10,15 +12,7 @@ import style from "./styles.module.scss";
 
 const Product = forwardRef(
   (
-    {
-      descriptionShort,
-      photo,
-      price,
-      productName,
-      id,
-      selected,
-      selectProduct,
-    }: ProductProps,
+    { descriptionShort, photo, price, productName, id }: IProduct,
     ref: ForwardedRef<HTMLLIElement>,
   ) => {
     const { onModal } = useModalContext();
@@ -42,15 +36,8 @@ const Product = forwardRef(
           className={style.product__button}
           type="button"
           onClick={() => {
-            selectProduct?.({
-              descriptionShort,
-              photo,
-              price,
-              productName,
-              id,
-              selected,
-            });
-            onModal();
+            const product = { descriptionShort, photo, price, productName, id };
+            onModal(<ProductQuickView {...product} />);
           }}
         >
           Comprar

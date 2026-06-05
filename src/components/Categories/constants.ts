@@ -12,36 +12,43 @@ export const CATEGORY_LIST: CategoryProps[] = [
   {
     image: devices,
     text: "Tecnologia",
+    link: "technology",
     default: false,
   },
   {
     image: supermarket,
     text: "Supermercado",
+    link: "supermarket",
     default: true,
   },
   {
     image: whiskey,
     text: "Bebidas",
+    link: "drinks",
     default: true,
   },
   {
     image: tools,
     text: "Ferramentas",
+    link: "tools",
     default: true,
   },
   {
     image: healthCare,
     text: "Saúde",
+    link: "health",
     default: true,
   },
   {
     image: runningTreadmill,
     text: "Esportes e Fitness",
+    link: "sports",
     default: true,
   },
   {
     image: fashion,
     text: "Moda",
+    link: "clothes",
     default: true,
   },
 ];

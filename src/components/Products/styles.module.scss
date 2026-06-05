@@ -21,6 +21,7 @@
   }
 
   &__category {
+    background: transparent;
     border: 0.1rem solid var(--color-gray-lighter-1);
     color: var(--color-gray-darker-4);
     display: flex;
@@ -50,7 +51,6 @@
 
   &__wrap {
     display: flex;
-    justify-content: space-between;
     gap: 5.3rem;
     padding: 2rem 0 2rem 0;
     min-height: 15rem;

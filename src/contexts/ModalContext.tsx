@@ -10,7 +10,8 @@ import {
 interface ModalContextProps {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
-  onModal: (callback?: () => void) => void;
+  content: ReactNode | null;
+  onModal: (content: ReactNode, callback?: () => void) => void;
   offModal: (callback?: () => void) => void;
 }
 
@@ -18,19 +19,24 @@ export const ModalContext = createContext<ModalContextProps | null>(null);
 
 export const ModalContextProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [content, setContent] = useState<ReactNode | null>(null);
 
-  const onModal = (callback?: () => void) => {
+  const onModal = (newContent: ReactNode, callback?: () => void) => {
+    setContent(newContent);
     setIsOpen(true);
     callback?.();
   };
 
   const offModal = (callback?: () => void) => {
     setIsOpen(false);
+    setTimeout(() => setContent(null), 300);
     callback?.();
   };
 
   return (
-    <ModalContext.Provider value={{ isOpen, setIsOpen, onModal, offModal }}>
+    <ModalContext.Provider
+      value={{ isOpen, setIsOpen, content, onModal, offModal }}
+    >
       {children}
     </ModalContext.Provider>
   );

@@ -3,11 +3,11 @@
 <h1 align="center"> 🔴 🟥 Econverse - VTEX 🔴 🟥 </h1>
 
 ![Vercel Deploy](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)
-![GitHub release](https://img.shields.io/github/v/release/Epiled/teste-front-end-jr?style=for-the-badge)
-![GitHub license](https://img.shields.io/github/license/Epiled/teste-front-end-jr?style=for-the-badge)
+![GitHub release](https://img.shields.io/github/v/release/Epiled/econverse?style=for-the-badge)
+![GitHub license](https://img.shields.io/github/license/Epiled/econverse?style=for-the-badge)
 
-![GitHub last commit](https://img.shields.io/github/last-commit/Epiled/teste-front-end-jr?style=for-the-badge)
-![Code Size](https://img.shields.io/github/languages/code-size/Epiled/teste-front-end-jr?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/Epiled/econverse?style=for-the-badge)
+![Code Size](https://img.shields.io/github/languages/code-size/Epiled/econverse?style=for-the-badge)
 
 ![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=333333)
 ![Typescript](https://img.shields.io/badge/Typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
@@ -48,7 +48,7 @@ The following technologies were used to build this project:
 
 Access the live application below to interact with the interface and run your own performance tests
 
-Econverse: [https://teste-front-end-jr-eight.vercel.app/](https://teste-front-end-jr-eight.vercel.app/)
+Econverse: [https://econverse-eight.vercel.app/](https://econverse-eight.vercel.app/)
 
 ### Desktop
 

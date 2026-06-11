@@ -1,63 +1,39 @@
-import shield from '../../../assets/svg/ShieldCheck.svg';
-import truck from '../../../assets/svg/Truck.svg';
-import creditCard from '../../../assets/svg/CreditCard.svg';
-import style from './Top.module.scss';
+import React from "react";
 
-interface ITopo {
-  imagem: string
-  texto: string
-  destaque: string
-  padrao?: boolean
-}
+import { ADVANTAGES_LIST } from "./constants.ts";
 
-const Topo: ITopo[] = [
-  {
-    "imagem": shield,
-    "texto": "Compra",
-    "destaque": " 100% segura",
-    "padrao": false
-  },
-  {
-    "imagem": truck,
-    "texto": "acima de R$ 200",
-    "destaque": "Frete grátis ",
-    "padrao": true
-  },
-  {
-    "imagem": creditCard,
-    "texto": "suas compras",
-    "destaque": "Parcele  ",
-    "padrao": true
-  }
-]
+import style from "./styles.module.scss";
 
 const Top: React.FC = () => {
-
   return (
     <div className={style.top}>
-
-      {Topo.map((item, index) => {
+      {ADVANTAGES_LIST.map((item, index) => {
         return (
           <span key={index} className={style.top__container}>
-            <img src={item.imagem} width='20px' height='20px' alt='#' />
+            <img
+              className={style.top__image}
+              src={item.image}
+              width="20px"
+              height="20px"
+              alt="#"
+            />
 
-            {item.padrao ? (
-              <span className={style.top__txt}>
-                <span className={style.top__destaque}>{item.destaque}</span>
-                {item.texto}
+            {item.default ? (
+              <span className={style.top__text}>
+                <span className={style.top__highlight}>{item.highlight}</span>
+                {item.text}
               </span>
             ) : (
-              <span className={style.top__txt}>
-                {item.texto} 
-                <span className={style.top__destaque}>{item.destaque}</span>
+              <span className={style.top__text}>
+                {item.text}
+                <span className={style.top__highlight}>{item.highlight}</span>
               </span>
             )}
           </span>
-        )
+        );
       })}
-
     </div>
-  )
-}
+  );
+};
 
 export default Top;

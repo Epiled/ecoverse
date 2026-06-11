@@ -1,76 +1,98 @@
 /// <reference types="vite-plugin-svgr/client" />
-import Group from '../../../assets/svg/Group.svg?react';
-import Heart from '../../../assets/svg/Heart.svg?react';
-import UserCircle from '../../../assets/svg/UserCircle.svg?react';
-import ShoppingCart from '../../../assets/svg/ShoppingCart.svg?react';
-import MagnifyingGlass from '../../../assets/svg/MagnifyingGlass.svg?react';
-import MenuHamburguer from '../../../assets/svg/MenuHamburguer.svg?react';
-import MenuClose from '../../../assets/svg/MenuClose.svg?react';
-import logo from '../../../assets/img/webp/logo.webp';
-import style from './Mid.module.scss';
-import { Link } from 'react-router-dom';
-interface IMid {
-  menuOpen: boolean
-  setMenu: React.Dispatch<React.SetStateAction<boolean>>
-  calculaMenu: () => void
-}
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Mid: React.FC<IMid> = ({ setMenu, menuOpen, calculaMenu }) => {
+import { MidProps } from "./types";
 
+import Group from "@/assets/svg/icons-ui/group.svg?react";
+import Heart from "@/assets/svg/icons-ui/heart.svg?react";
+import User from "@/assets/svg/icons-ui/user.svg?react";
+import ShoppingCart from "@/assets/svg/icons-ui/shopping-cart.svg?react";
+import MagnifyingGlass from "@/assets/svg/icons-ui/magnifying-glass.svg?react";
+import Close from "@/assets/svg/icons-ui/close.svg?react";
+import Menu from "@/assets/svg/icons-ui/menu.svg?react";
+import logo from "@/assets/img/webp/logo.webp";
+
+import style from "./styles.module.scss";
+
+const Mid: React.FC<MidProps> = ({ isOpen, toggleMenu }) => {
   return (
     <div className={style.mid}>
-      <img className={style.mid__logo} src={logo} width={139} height={51} alt='Logo - VTEX' />
+      <img
+        className={style.mid__logo}
+        src={logo}
+        width={139}
+        height={51}
+        alt="Logo - VTEX"
+      />
 
       <div className={style.mid__container}>
-        <div className={style.mid__busca}>
-          <input className={style.mid__ipt} placeholder='O que você está buscando?' type='search' name='' id='' />
-          <button className={style.mid__btnBusca} aria-label='Buscar'>
-            <MagnifyingGlass className={style.mid__btnIcon} />
+        <div className={style.mid__search}>
+          <input
+            className={style.mid__ipt}
+            placeholder="O que você está buscando?"
+            type="search"
+            name=""
+            id=""
+          />
+          <button className={style.mid__button} aria-label="Buscar">
+            <MagnifyingGlass className={style.mid__iconButton} />
           </button>
         </div>
 
-        {
-          menuOpen ?
-            <MenuClose
-              className={style.mid__hamburguer}
-              width='50px'
-              height='50px'
-              title='Menu Hamburguer Close'
-              onClick={() => {
-                setMenu(!menuOpen)
-                calculaMenu()
-              }}
-            />
-            :
-            <MenuHamburguer
-              className={style.mid__hamburguer}
-              width='50px'
-              height='50px'
-              title='Menu Hamburguer Open'
-              onClick={() => {
-                setMenu(!menuOpen)
-                calculaMenu()
-              }}
-            />
-        }
+        {isOpen ? (
+          <Close
+            className={style.mid__icon}
+            width="50px"
+            height="50px"
+            title="Menu Fechado"
+            onClick={() => {
+              toggleMenu();
+            }}
+          />
+        ) : (
+          <Menu
+            className={style.mid__icon}
+            width="50px"
+            height="50px"
+            title="Menu Aberto"
+            onClick={() => {
+              toggleMenu();
+            }}
+          />
+        )}
       </div>
 
       <nav className={style.mid__icons}>
-        <Link className={style.mid__link} to={''} aria-label='Acessar acompanhamento de pedidos'>
-          <Group className={`${style.mid__iconLink} ${style['mid__iconLink--fill']}`} />
+        <Link
+          className={style.mid__link}
+          to={"/"}
+          aria-label="Acessar acompanhamento de pedidos"
+        >
+          <Group
+            className={`${style.mid__iconLink} ${style["mid__iconLink--fill"]}`}
+          />
         </Link>
-        <Link className={style.mid__link} to={''} aria-label='Acessar favoritos'>
+        <Link
+          className={style.mid__link}
+          to={"/"}
+          aria-label="Acessar favoritos"
+        >
           <Heart className={style.mid__iconLink} />
         </Link>
-        <Link className={style.mid__link} to={''} aria-label='Acessar perfil'>
-          <UserCircle className={style.mid__iconLink} />
+        <Link className={style.mid__link} to={"/"} aria-label="Acessar perfil">
+          <User className={style.mid__iconLink} />
         </Link>
-        <Link className={style.mid__link} to={''} aria-label='Acessar carrinho de compras'>
+        <Link
+          className={style.mid__link}
+          to={"/"}
+          aria-label="Acessar carrinho de compras"
+        >
           <ShoppingCart className={style.mid__iconLink} />
         </Link>
       </nav>
     </div>
-  )
-}
+  );
+};
 
 export default Mid;

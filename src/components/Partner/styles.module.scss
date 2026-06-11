@@ -1,0 +1,59 @@
+.partner {
+  background-image: url(@/assets/img/webp/partners.webp);
+  background-size: cover;
+  border-radius: 2rem;
+  color: var(--lighter);
+  max-width: 57.4rem;
+  width: 100%;
+  height: 35rem;
+  position: relative;
+  padding: 4rem;
+  box-sizing: border-box;
+  max-width: 100%;
+
+  @media screen and (min-width: 1280px) {
+    & {
+      flex: 1;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 28.4rem;
+    left: 0;
+    bottom: 0;
+    border-radius: 0 0 2rem 2rem;
+    opacity: 0.8;
+    background: linear-gradient(180deg, var(--no-color) 0%, var(--darker) 85.04%);
+  }
+
+  &--alt {
+    height: 28.4rem;
+    background-position: left center;
+    background-size: 170%;
+    border-radius: 1rem;
+
+    &::after {
+      border-radius: 1rem;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 1;
+    max-width: 22rem;
+    inset-block-end: 5rem;
+  }
+
+  &__title {
+    font-size: 4rem;
+    font-weight: 700;
+  }
+
+  &__text {
+    font-size: 1.6rem;
+    margin-bottom: 3.2rem;
+  }
+}

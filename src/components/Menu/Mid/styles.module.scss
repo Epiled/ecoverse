@@ -1,0 +1,142 @@
+.mid {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 7.2rem;
+  border-bottom: 0.1rem solid var(--color-white-4);
+  position: relative;
+  gap: 2rem;
+
+  @media screen and (max-width: 768px) {
+    justify-content: space-between;
+    gap: 1rem;
+    border: 0;
+  }
+
+  @media screen and (min-width: 769px) and (max-width: 1280px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  &__logo {
+    width: 100%;
+    height: auto;
+    max-width: 13.9rem;
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+      max-width: 10rem;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    max-width: 65.7rem;
+
+    @media screen and (max-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      flex: none;
+      gap: 1rem;
+      order: 1;
+      max-width: none;
+    }
+  }
+
+  &__search {
+    position: relative;
+    display: flex;
+    width: 100%;
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 4.8rem;
+    height: 4.8rem;
+    border: 0;
+    border-radius: 0 1rem 1rem 0;
+    background: var(--color-white-2);
+
+    &:hover {
+      background-color: var(--color-main);
+
+      .mid__iconButton {
+        stroke: var(--lighter);
+      }
+    }
+  }
+
+  &__iconButton {
+    stroke: var(--color-gray-lighter-4);
+  }
+
+  &__icon {
+    cursor: pointer;
+    display: none;
+    fill: var(--color-main);
+
+    @media screen and (max-width: 768px) {
+      display: inline-block;
+      object-fit: contain;
+    }
+  }
+
+  &__ipt {
+    color: var(--color-gray-lighter-4);
+    font-size: 1.4rem;
+    font-weight: 500;
+    background: var(--color-white-2);
+    border-radius: 1rem 0 0 1rem;
+    width: 100%;
+    height: 4.8rem;
+    padding: 1.4rem 2.4rem;
+    border: 0;
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+      padding: 1.4rem;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+
+    @media screen and (max-width: 768px) {
+      gap: 1.6rem;
+    }
+  }
+
+  &__link {
+    width: 3.2rem;
+    height: 3.2rem;
+
+    &:first-of-type {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+
+  &__iconLink {
+    stroke: var(--color-gray-lighter-4);
+
+    &:hover {
+      stroke: var(--color-main);
+      cursor: pointer;
+    }
+
+    &--fill {
+      fill: var(--color-gray-lighter-4);
+      stroke: var(--color-gray-lighter-4);
+
+      &:hover {
+        fill: var(--color-main);
+        stroke: var(--color-main);
+      }
+    }
+  }
+}

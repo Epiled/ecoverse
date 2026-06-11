@@ -1,0 +1,39 @@
+.top {
+  color: #9f9f9f;
+  font-size: 12px;
+  font-weight: 500;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  height: 32px;
+  border-bottom: 1px solid #f0f0f0;
+
+  @media screen and (max-width: 768px) {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 5px;
+    padding: 5px 10px;
+    display: none;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__image {
+    margin-right: 9px;
+  }
+
+  &__text {
+    font-size: 1.2rem;
+  }
+
+  &__highlight {
+    color: #f71963;
+    font-weight: 600;
+    font-size: inherit;
+  }
+}

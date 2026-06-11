@@ -1,72 +1,31 @@
-import { IProduto } from '../../interfaces/IProduto'
-import style from './Modal.module.scss'
-import foto from '../../assets/img/mobile.png'
-import { useState } from 'react';
+import React from "react";
+import { createPortal } from "react-dom";
 
-interface ModalProps {
-  produtoSelecionado?: IProduto;
-  offModal: (onModal: boolean) => void;
-}
+import { useModalContext } from "@/contexts/ModalContext";
 
-const Modal: React.FC<ModalProps> = ({ produtoSelecionado, offModal }) => {
-  const [quantidade, setQuantidade] = useState(1);
+import style from "./styles.module.scss";
 
-  const handleDecrement = () => {
-    if (quantidade > 1) {
-      setQuantidade(quantidade - 1);
-    }
-  };
+const Modal: React.FC = () => {
+  const { isOpen, content, offModal } = useModalContext();
 
-  const handleIncrement = () => {
-    setQuantidade(quantidade + 1);
-  };
+  if (!isOpen || !content) return null;
 
-  const handleInputChange = (event: { target: { value: string; }; }) => {
-    const value = parseInt(event.target.value, 10);
-    if (!isNaN(value) && value >= 1) {
-      setQuantidade(value);
-    }
-  };
-
-  return (
+  return createPortal(
     <aside className={style.modal}>
       <div className={style.modal__box}>
-        <div className={`${style.modal__container} ${style['modal__container--imagem']}`}>
-          <img src={foto} className={style.modal__imagem} alt="" />
-        </div>
-        <div className={style.modal__container}>
-          <h3 className={style.modal__titulo}>
-            {produtoSelecionado?.productName}
-          </h3>
-          <span className={style.modal__preco}>
-            R$ {produtoSelecionado?.price.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.')}
-          </span>
-          <p className={style.modal__txt}>
-            {produtoSelecionado?.descriptionShort}
-
-          </p>
-          <span className={style.modal__extra}>
-            Veja mais detalhes do produto
-          </span>
-          <div className={style.modal__ipts}>
-            <button className={style.modal__arit} onClick={handleDecrement}>-</button>
-            <input className={style.modal__qtd}
-              type="number"
-              id="modalQuantidade"
-              name="modalQuantidade"
-              value={quantidade}
-              onChange={handleInputChange}
-            />
-            <button className={style.modal__arit} onClick={handleIncrement}>+</button>
-          </div>
-          <button className={style.modal__btn}>
-            Comprar
-          </button>
-        </div>
-        <button className={style.modal__close} onClick={() => offModal(false)}>X</button>
+        <button
+          className={style.modal__close}
+          onClick={() => {
+            offModal();
+          }}
+        >
+          X
+        </button>
+        {content}
       </div>
-    </aside>
-  )
-}
+    </aside>,
+    document.body,
+  );
+};
 
 export default Modal;

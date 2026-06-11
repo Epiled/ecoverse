@@ -1,111 +1,129 @@
-<h1 align="center" id="sobre">🔴 🟥 Teste Econverse - VTEX 🔴 🟥</h1>
+![Social Preview](./design/github/social-preview/social-preview.png)
 
-- Desenvolver a pagina em React e TypeScript conforme o [layout](https://www.figma.com/file/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0%3A1). Para conseguir pegar os elementos do Figma, basta copiar o layout para sua conta que terá acesso de edição.
-- Montar a [vitrine](https://app.econverse.com.br/teste-front-end/junior/tecnologia/layout/vitrine-produtos.png) de produtos consumindo as informações dos produtos em json atraves desse [Link](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json).
-- Desenvolver a interação ao clicar em um produto conforme layout. A interação consiste em abrir um modal com as principais informações do produto presente no arquivo [JSON](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json) conforme o produto que clicar.
-- Utilizar Pré-processador Sass, Less ou Stylus.
-- Respeitar o Layout pixel a pixel, tamanho das fontes, cores e botões.
-- Não Utilizar bibliotecas UI como Bootstrap, Foundation, ou afins.
+<h1 align="center"> 🔴 🟥 Econverse - VTEX 🔴 🟥 </h1>
 
-- Utilizar Boas práticas de SEO
-- Uso de HTML semântico
+![Vercel Deploy](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)
+![GitHub release](https://img.shields.io/github/v/release/Epiled/teste-front-end-jr?style=for-the-badge)
+![GitHub license](https://img.shields.io/github/license/Epiled/teste-front-end-jr?style=for-the-badge)
 
-![Badge](https://img.shields.io/github/last-commit/Epiled/teste-front-end-jr?style=for-the-badge)
-![Badge](https://img.shields.io/github/languages/code-size/Epiled/teste-front-end-jr?style=for-the-badge)
-![Badge](https://img.shields.io/github/languages/count/Epiled/teste-front-end-jr?style=for-the-badge)
-![Bagde](https://img.shields.io/badge/repo%20status-Beta-cyan?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/Epiled/teste-front-end-jr?style=for-the-badge)
+![Code Size](https://img.shields.io/github/languages/code-size/Epiled/teste-front-end-jr?style=for-the-badge)
 
-![Badge](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![Badge](https://img.shields.io/badge/-Typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Badge](https://img.shields.io/badge/-Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
-![Badge](https://img.shields.io/badge/-CSS%20Modules-000000?style=for-the-badge&logo=cssmodules&logoColor=white)
-![Badge](https://img.shields.io/badge/-HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![Badge](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![Badge](https://img.shields.io/badge/-JS-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Badge](https://img.shields.io/badge/-Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)
+![React](https://img.shields.io/badge/-React-61DAFB?style=for-the-badge&logo=react&logoColor=333333)
+![Typescript](https://img.shields.io/badge/Typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node\.js-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
-<h2> 📑 Tabela de Conteúdos </h2>
+## 📑 Table of Contents
 
-<!--ts-->
-   * [Sobre](#sobre)
-   * [Referência](#referencia)
-   * [Demonstração](#demonstracao)
-   * [Performance](#performance)
-   * [Instalação](#instalacao)
-   * [Como usar](#como-usar)
-   * [Building](#building)
-   * [Tecnologias](#tecnologias)
-   * [Autor](#autor)
-<!--te-->
+- [📑 Table of Contents](#-table-of-contents)
+- [📖 Overview](#-overview)
+- [🛠️ Technologies](#-technologies)
+- [⚡ Performance & PWA](#-performance--pwa)
+- [🚀 Demo](#-demo)
+- [📦 Install and Use](#-install-and-use)
+- [📂 File Structure](#-file-structure)
+- [🎨 Reference & Inspiration](#-reference--inspiration)
+- [👨‍💻 Author and Contact](#%E2%80%8D-author-and-contact)
 
-<h2 id="referencia"> 🔖 Referência </h2>
-<p>
-  Os arquivos de wireframes podem ser visto ou editados no seguinte link.
-<p>
-<p>
-  Figma: <a href="https://www.figma.com/file/bPKnwKLoP0TXZIWW0lKC3j/Teste-Front-End-Jr-(Copy)?type=design&node-id=0%3A1&mode=design&t=CHrQ8oxakRwqSGo0-1">Teste Front-End - Econverse</a>
-</p>
+## 📖 Overview
 
-<h2 id="demonstracao"> 👀 Demonstração </h2>
+**Econverse** is a robust frontend web application engineered to deliver a seamless shopping experience for a modern department store. Designed with a strict emphasis on Core Web Vitals and high Lighthouse scores, the platform ensures rapid product discovery and fluid navigation. Built using a modern React and TypeScript stack, the architecture prioritizes scalable global state management, clean component decoupling, and an optimized rendering pipeline to support a diverse, multi-category product catalog.
 
-<p>No link abaixo você pode ver a página no ar e rodar seus próprios teste de perfomance ou desempenho</p>
-<p>Teste Front-End - Ecoverse: <a href="https://teste-front-end-jr-mc15.vercel.app/">epiled.github.io/teste-front-end-jr/</a></p>
+## 🛠 Technologies
+
+The following technologies were used to build this project:
+
+- [React](https://react.dev/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Node.js](https://nodejs.org/en)
+- [Sass](https://sass-lang.com/)
+- [CSS Modules](https://github.com/css-modules/css-modules)
+- [Vite](https://vite.dev/)
+
+## ⚡ Performance & PWA
+
+![Lighthouse Performance](./design/github/lighthouse-report/lighthouse-report.png)
+
+## 🚀 Demo
+
+Access the live application below to interact with the interface and run your own performance tests
+
+Econverse: [https://teste-front-end-jr-eight.vercel.app/](https://teste-front-end-jr-eight.vercel.app/)
+
+### Desktop
 
 https://github.com/Epiled/teste-front-end-jr/assets/55258483/349b8289-b663-43ef-a839-121c7cfefa76
 
+### Mobile
+
 https://github.com/Epiled/teste-front-end-jr/assets/55258483/6b25026c-6d91-485e-8a88-06444b04251d
 
-<h2 id="performance"> 📈 Performance Lighthouse </h2>
+## 📦 Install and Use
 
-![lighthouse-01](https://github.com/Epiled/teste-noweb/assets/55258483/23eded5b-bdf0-4a81-af82-44b6d31d54a7)
+**Prerequisites:** Node.js (v22.x) or higher installed.
 
-<h2 id="instalacao"> ⚙ Instalação </h2>
-
-```
-1. git clone https://github.com/Epiled/teste-front-end-jr.git
-2. cd teste-front-end-jr
-3. npm install
+1. Clone the repository:
+```bash
+git clone https://github.com/Epiled/econverse.git
+cd econverse
 ```
 
-<h2 id="como-usar"> 👩‍🏫 Como usar </h2>
-
-```
-1. npm run dev
-2. Abra a seguinte url http://localhost:5173/
+2. Install the dependencies:
+```bash
+npm install
 ```
 
-<h2 id="building"> ⚙ Building </h2>
-
+3. Run the development environment (Build + Watch + Server):
+```bash
+npm run dev
 ```
-1. npm run build
+
+4. (Optional) Generate minified build for production:
+```bash
+npm run build
 ```
 
-<h2 id="tecnologias"> 🛠 Tecnologias </h2>
+## 📂 File Structure
 
-As seguintes tecnologias foram usadas na construção deste projeto:
+Below is the project architecture. All development is done inside the `src/` folder. The `dist/` folder is automatically generated by Vite and should not be edited manually.
 
-<ul>
-  <li><a href="https://react.dev/" target="_blank">React</a></li>
-  <li><a href="https://www.typescriptlang.org/" target="_blank">Typescript</a></li>
-  <li><a href="https://sass-lang.com/" target="_blank">Sass</a></li>
-  <li><a href="https://www.npmjs.com/package/typescript-plugin-css-modules" target="_blank">CSS Modules</a></li>
-  <li><a href="https://www.w3schools.com/html/default.asp" target="_blank">HTML5</a></li>
-  <li><a href="https://www.w3schools.com/css/default.asp" target="_blank">CSS3</a></li>
-  <li><a href="https://www.w3schools.com/js/default.asp" target="_blank">JavaScript</a></li>
-  <li><a href="https://nodejs.org/en" target="_blank">Node.js</a></li>
-</ul>
+```text
+econverse/
+├── src/                # Main source code
+│   ├── api/            # Base HTTP client configuration and request interceptors
+│   ├── assets/         # Images and SVGs processed by the build pipeline
+│   ├── components/     # Reusable UI components (Atomic Design principles)
+│   ├── contexts/       # Global state management providers (e.g., Modals, Filters)
+│   ├── hooks/          # Custom React hooks encapsulating state and fetching logic
+│   ├── interfaces/     # Global TypeScript definitions and data shape contracts
+│   ├── pages/          # Top-level view components representing application routes
+│   ├── service/        # Abstraction layer for API endpoints and business logic
+│   ├── styles/         # Global styles and theme definitions
+│   ├── utils/          # Pure helper functions, constants, and data formatters
+│   ├── App.tsx         # Root component
+│   └── main.tsx        # Application entry point
+├── public/             # Static assets (favicons, robots.txt)
+├── vite.config.ts      # Custom Vite configuration (plugins and aliases)
+├── tsconfig.json       # TypeScript strict configuration
+└── package.json        # Project dependencies and automation scripts
+```
 
-<h2 id="autor"> 👨‍💻 Autor </h2>
+## 🎨 Reference & Inspiration
+
+The project's design and wireframes are available for viewing on Figma.
+
+Figma / Wireframe: [Econverse](https://www.figma.com/file/bPKnwKLoP0TXZIWW0lKC3j/Teste-Front-End-Jr-(Copy)?type=design&node-id=0%3A1&mode=design&t=CHrQ8oxakRwqSGo0-1)
+
+## 👨‍💻 Author and Contact
 
 <a href="https://github.com/Epiled">
+  <img src="https://user-images.githubusercontent.com/55258483/178338085-2cea8bf2-6d0c-409a-9d0e-23359b7d303e.png" alt="Felindo">
+  <br />
+  <sub><b>Felipe De Andrade</b></sub>
+</a>
 
-![Felindo](https://user-images.githubusercontent.com/55258483/178338085-2cea8bf2-6d0c-409a-9d0e-23359b7d303e.png)
- <br />
- <sub><b>Felipe De Andrade</b></sub></a>
+Made with ❤️ by Felipe De Andrade 👋🏽 Get in touch!
 
-Feito com ❤️ por Felipe De Andrade 👋🏽 Entre em contato!
-
-[![Linkedin Badge](https://img.shields.io/badge/-Felipe-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/fademendonca/)](https://www.linkedin.com/in/fademendonca/)
-[![Gmail Badge](https://img.shields.io/badge/-felipe.deam98@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:felipe.deam98@gmail.com)](mailto:felipe.deam98@gmail.com)
-[![Instagram Badge](https://img.shields.io/badge/-Instagram-e4405f?style=flat-square&logo=Instagram&logoColor=white&link=https://www.instagram.com/felipe.deam/)](https://www.instagram.com/felipe.deam/)
-[![Codepen Badge](https://img.shields.io/badge/-Codepen-000000?style=flat-square&logo=Codepen&logoColor=white&link=https://codepen.io/epiled)](https://codepen.io/epiled)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/fademendonca/)
+[![CodePen](https://img.shields.io/badge/CodePen-000000?style=for-the-badge&logo=codepen&logoColor=white)](https://codepen.io/epiled)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:felipe.deam98@gmail.com)

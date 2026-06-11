@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Home from "./pages/Home";
 
-import "./styles/Globals.module.scss";
+import "./styles/globals.scss";
 
 const App: React.FC = () => {
   return (
